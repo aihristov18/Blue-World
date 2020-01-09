@@ -1,4 +1,4 @@
 # Blue-World
 Blue World Repository
 
-Hello! This is Project Manager Alex. Welcome to our project!
+Hello! We are Oceans United and welcome to our project!
