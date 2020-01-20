@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script> <!-- include jquery-->
+    <script>
+        var k;
+        var content; // this variable will store all of the targeted website's html code
+        var cross = "http://www.whateverorigin.org/get?url="; // This variable stores the URL of the proxy server, used to bypass the CORS policy
+        var url="https://www.worldometers.info/world-population/germany-population/"; // this variable stores the URL of the targeted webiste
+        $.getJSON(cross + encodeURIComponent(url) + '&callback=?', function(data)// this is getJSON request. We search for the targeted website's adress trough the proxy server
+        {
+            content=data.contents;// Fill the content variable with all of the targeted website's html code
+            console.log(content); // Print all of the targeted webside's code
+            console.log(typeof content); // Print the variable type of content
+            var b =content.lastIndexOf("maincounter-number"); //Search for the specific word "maincounter-number"'s last index and we store it in a variable
+            
+            console.log(b); // Print the value that holds the last index of the keyword
+            for(var i=0;i<100;i++)// Make a for loop that concatinates every next element into 1 usable string
+            {
+                k+=content[b+i]; //k concatinates every next i, to form the piece of code where the desired number would be
+            }
+            console.log(k);// Print the desired string
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
