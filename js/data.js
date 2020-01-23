@@ -14,4 +14,34 @@ var dataArray = [ // this array contains the URLs of all the websites we get our
         url:"http://www.oceanhealthindex.org/region-scores/scores/china",
         dataPoint:"span.score.score-lrg"
     },
+    {
+        country:"united-states",
+        url:"http://www.oceanhealthindex.org/region-scores/scores/united-states",
+        dataPoint:"span.score.score-lrg"
+    },
+    {
+        country:"canada",
+        url:"http://www.oceanhealthindex.org/region-scores/scores/canada",
+        dataPoint:"span.score.score-lrg"
+    },
+    {
+        country:"india",
+        url:"http://www.oceanhealthindex.org/region-scores/scores/india",
+        dataPoint:"span.score.score-lrg"
+    },
+    {
+        country:"germany",
+        url:"http://www.oceanhealthindex.org/region-scores/scores/germany",
+        dataPoint:"span.score.score-lrg"
+    },
+    {
+        country:"france",
+        url:"http://www.oceanhealthindex.org/region-scores/scores/france",
+        dataPoint:"span.score.score-lrg"
+    },
+    {
+        country:"united-kingdom",
+        url:"http://www.oceanhealthindex.org/region-scores/scores/united-kingdom",
+        dataPoint:"span.score.score-lrg"
+    },
 ];
