@@ -5,30 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../js/GetDataScript.js"></script>
+    <style>
+        @keyframes wat{
+            0% {fill:#003851;}
+            50%{fill:#22646e;}
+            0% {fill:#003851;}
+        }
+        @keyframes wet{
+            0% {fill:#003851;}
+            50%{fill:#bfd2d9;}
+            0% {fill:#003851;}
+        }
+        *{
+            margin:0;
+        }
+
+        .RegularPoly{
+            fill:#003851;
+        }
+        .water {
+            animation-name: wat;
+            animation-duration: 10s;
+        }
+    </style>
     <script>
-        function ne()
+    function InitialiseMap(width,height,placeElement) 
+    {
+        var codeString='<div class="container" style="width:100%; height:100%;"><svg id="triangle" viewBox="0 0 3700 3700">'; // this string stores all of the code for the bakground
+        for(var y=0;y<height;y++) // Iterate trough every
         {
-        var k='<div class="container" style="width:100%; height:100%;"><svg id="triangle" viewBox="0 0 3200 3200">';
-        for(var y=0;y<20;y++)
-        {
-            for(var x=0;x<100;x++)
+            for(var x=0;x<width;x++)
             {
-                k+="<polygon id='x"+x+"y"+y+"' points='"+(x*100+50)+" "+y*100+", "+(x*100+100)+" "+((y*100)+(100))+", "+(x*100)+" "+((y*100)+(100))+"' />";
-                k+="<polygon id='x!"+x+"y!"+y+"' points='"+(x*100+100)+" "+((y*100)+(100))+", "+((x*100)+150)+" "+(y*100)+", "+(x*100+50)+" "+y*100+"'/>"
+                if(y%2==0)
+                {
+                        codeString+="<polygon class='RegularPoly' id='x"+x+"y"+y+"' points='"+(x*100)+" "+(y*85)+", "+((x*100)+50)+" "+((y*85)+85)+", "+((x*100)-50)+" "+((y*85)+85)+"' />";
+                        codeString+="<polygon class='RegularPoly' id='x!"+x+"y!"+y+"' points='"+((x*100)+50)+" "+((y*85)+85)+", "+((x*100)+100)+" "+((y*85))+", "+(x*100)+" "+(y*85)+"' />"
+                }
+                else
+                {
+                    codeString+="<polygon class='RegularPoly' id='x"+x+"y"+y+"' points='"+(x*100)+" "+((y/2+0.5)*170)+", "+((x*100)+50)+" "+((y*85))+", "+((x*100)-50)+" "+((y*85))+"' />";
+                    codeString+="<polygon class='RegularPoly' id='x!"+x+"y!"+y+"' points='"+((x*100)+50)+" "+((y*85))+", "+((x*100)+100)+" "+((y/2+0.5)*170)+", "+(x*100)+" "+((y/2+0.5)*170)+"' />";
+                }
             }
         }
-        k+="</svg></div>";
-        console.log(k);
-        }
+        codeString+="</svg></div>";
+        console.log(codeString);
+        document.getElementById(placeElement).innerHTML=codeString;
+    }
+
+function AnimateWater(width,height,className){
+    setInterval(function(){
+        var Rh = Math.floor(Math.random() * height);
+        var Rw = Math.floor(Math.random() * width);
+        var RRh = Math.floor(Math.random() * height);
+        var RRw = Math.floor(Math.random() * width);
+        var string = "#x"+Rw+"y"+Rh;
+        var string2 = "#x"+RRw+"y"+RRh;
+        $(string).toggleClass(className);
+        $(string2).toggleClass(className);
+    }, 3000);
+}
+
     </script>
 </head>
 <body>
-    <button onclick="ne()"></button>
-    <svg id="triangle" viewBox="0 0 3000 3000">
-        <!--               vruh     dqsno    lqvo-->
-        <polygon points="50 15, 100 100, 0 100"/>
-        <polygon points="50 100, 100 185, 0 185"/>
-</svg>
-
+    <button onclick="for(var i=0;i<150;i++){AnimateWater(40,30,'water');} //AnimateWater(40,30,'water')"></button>
+    <button onclick="InitialiseMap(40,30,'da')">dadadaddatext</button>
+<div id="da"></div>
 </body>
 </html>
