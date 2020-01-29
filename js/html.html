@@ -8,6 +8,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../js/GetDataScript.js"></script>
     <style>
+        @keyframes wot{
+            0% {fill:#003851;}
+            50%{fill:#3b89ac;}
+            0% {fill:#003851;}
+        }
         @keyframes wat{
             0% {fill:#003851;}
             50%{fill:#22646e;}
@@ -28,6 +33,14 @@
         .water {
             animation-name: wat;
             animation-duration: 10s;
+        }
+        .WhiteWater{
+            animation-name: wet;
+            animation-duration:10s;
+        }
+        .BlueWater{
+            animation-name:wot;
+            animation-duration:10s;
         }
     </style>
     <script>
@@ -60,14 +73,14 @@ function AnimateWater(width,height,className){
         var Rw = Math.floor(Math.random() * width*2);
         var string = "#x"+Rw+"y"+Rh;
         $(string).toggleClass(className);
-    }, 3000);
+    }, Math.floor(Math.random() * 5));
 }
 
     </script>
 </head>
 <body>
-    <button onclick="for(var i=0;i<150;i++){AnimateWater(40,30,'water');} //AnimateWater(40,30,'water')"></button>
-    <button onclick="InitialiseMap(40,30,'da')">dadadaddatext</button>
+    <button onclick="for(var i=0;i<150;i++){AnimateWater(40,15,'water');} for(var i=0;i<5;i++){AnimateWater(40,15,'WhiteWater');} for(var i=0;i<5;i++){AnimateWater(40,15,'BlueWater');}"></button>
+    <button onclick="InitialiseMap(40,15,'da')">dadadaddatext</button>
 <div id="da"></div>
 </body>
 </html>
