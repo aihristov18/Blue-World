@@ -29,7 +29,7 @@ function InitialiseMap(width, height, placeElement)
 {
     setTimeout(1000); //Wait for 1 second
     var XIDcounter=0; // This variable help define each element's ID along the X axis
-    var codeString = '<div class="container" style="width:100%; height:100%;"><svg id="triangle" viewBox="0 0 3700 3700" style="display:inline; position:absolute;">'; // this string stores all of the code for the bakground
+    var codeString = '<div class="container" style="width:100%; height:100%;"><svg id="triangle" viewbox="0 0 3700 1860">'; // this string stores all of the code for the bakground
     for (var y = 0; y < height; y++) // Iterate trough every y element. It is equivelent to the height parameter
     {
         for (var x = 0; x < width; x++) { // Iterate trough every x element. It is equivelent to the width parameter
