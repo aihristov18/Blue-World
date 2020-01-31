@@ -1,14 +1,13 @@
-/*g#g188>g>path, g#g104>path, #Unclear10, #Unclear11, #Unclear31, #Unclear12, #Unclear13, #Unclear35, #Unclear14{
+g#g188>g>path, g#g104>path, #Unclear10, #Unclear11, #Unclear31, #Unclear12, #Unclear13, #Unclear35, #Unclear14{
     fill:#fff0d7;
     stroke:#fff0d7;
     stroke-width:5px !important;
 }
-g#g188>g>path:hover, g#g104>path:hover, #Unclear10:hover, #Unclear11:hover, #Unclear31:hover, #Unclear12:hover, #Unclear13:hover, #Unclear35:hover, #Unclear14:hover{
+/* g#g188>g>path:hover, g#g104>path:hover, #Unclear10:hover, #Unclear11:hover, #Unclear31:hover, #Unclear12:hover, #Unclear13:hover, #Unclear35:hover, #Unclear14:hover{
     stroke:black;
-}*/
-.DA{
-    stroke:red;
-}
+} */
+
+
 .Africa{
     fill:#dde0d7;
 }
