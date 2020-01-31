@@ -1,28 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="../css/Map.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="MapScripts.js"></script>
-    <script src="map.js"></script>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+   <link rel="stylesheet" type="text/css" href="../css/Map.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="MapScripts.js"></script>
+   <script src="map.js"></script>
    <script>
-      window.onload = function() {
-         document.getElementById("Map").innerHTML=Map;  
-         InitialiseMap(40,24,"BG"); 
-         
+      window.onload = function () {
+         document.getElementById("Map").innerHTML = Map;
+         InitialiseMap(40, 24, "BG");
+
+         var asiaElements = $(".Asia");
+
+         asiaElements.hover(
+            function () {
+               asiaElements
+                  .css("stroke", "black")
+                  .css("fill", "red");
+            },
+            function () {
+               asiaElements
+                  .css("stroke", "white")
+                  .css("fill", "#fff0d7");
+            }
+         );
+         // .css("stroke", "black");
+
+         // setInterval(function () {
+         //    let ae = $(".water, .BlueWater, .WhiteWater");
+         //    console.log("count: " + ae.length)
+         // }, 500);
+
+         for (var i = 0; i < 150; i++) { AnimateWater(40, 24, "water"); }
+         for (var i = 0; i < 100; i++) { AnimateWater(40, 24, "BlueWater"); }
+         for (var i = 0; i < 50; i++) { AnimateWater(40, 24, "WhiteWater"); }
+
+         setTimeout(function () {
+            for (var i = 0; i < 150; i++) { AnimateWater(40, 24, "water"); }
+            for (var i = 0; i < 100; i++) { AnimateWater(40, 24, "BlueWater"); }
+            for (var i = 0; i < 50; i++) { AnimateWater(40, 24, "WhiteWater"); }
+
+            setTimeout(function () {
+               for (var i = 0; i < 150; i++) { AnimateWater(40, 24, "water"); }
+               for (var i = 0; i < 100; i++) { AnimateWater(40, 24, "BlueWater"); }
+               for (var i = 0; i < 50; i++) { AnimateWater(40, 24, "WhiteWater"); }
+            }, 2000);
+         }, 2000);
+
       }
-      
    </script>
 </head>
+
 <body>
-   <!--<object type="image/svg+xml" data="map.svg" id="Map"></object>-->
    <div id="Map"></div>
    <div id="BG" style="position: relative; overflow:hidden;"></div>
-
 </body>
 </html>
 </body>
