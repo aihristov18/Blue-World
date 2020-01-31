@@ -1,0 +1,87 @@
+/*g#g188>g>path, g#g104>path, #Unclear10, #Unclear11, #Unclear31, #Unclear12, #Unclear13, #Unclear35, #Unclear14{
+    fill:#fff0d7;
+    stroke:#fff0d7;
+    stroke-width:5px !important;
+}
+g#g188>g>path:hover, g#g104>path:hover, #Unclear10:hover, #Unclear11:hover, #Unclear31:hover, #Unclear12:hover, #Unclear13:hover, #Unclear35:hover, #Unclear14:hover{
+    stroke:black;
+}*/
+.DA{
+    stroke:red;
+}
+.Africa{
+    fill:#dde0d7;
+}
+.America{
+    fill:blue !important;
+}
+.Europe{
+    fill:yellow;
+}
+.SouthAmerica{
+    fill:orange;
+}
+.Oceania{
+    fill:purple;
+}
+#triangle{
+    width:100%;
+ }
+ #SVGRoot{
+     width:100%;
+     margin-left:5%;
+     margin-bottom:-3%;
+ }
+ #Map{
+    width:100%;
+    position: absolute;
+    z-index: 2;
+    overflow:hidden;
+ }
+ #BG{
+    display:relative;
+    z-index: 1;
+ }
+  *{
+      margin:0;
+  }
+/*!!!!!!!!WATER ANIMATIONS!!!!!!!!*/
+  @keyframes wot{
+      0% {fill:#003851;}
+      50%{fill:#3b89ac;}
+      0% {fill:#003851;}
+  }
+  @keyframes wat{
+      0% {fill:#003851;}
+      50%{fill:#22646e;}
+      0% {fill:#003851;}
+  }
+  @keyframes wet{
+      0% {fill:#003851;}
+      50%{fill:#bfd2d9;}
+      0% {fill:#003851;}
+  }
+  *{
+      margin:0;
+  }
+
+  .RegularPoly{
+      fill:#003851;
+  }
+  .water {
+      animation-name: wat;
+      animation-duration: 4s;
+  }
+  .WhiteWater{
+      animation-name: wet;
+      animation-duration:4s;
+  }
+  .BlueWater{
+      animation-name:wot;
+      animation-duration:4s;
+  }
+/*!!!!!!!!WATER ANIMATIONS!!!!!!!!*/
+
+/*!!!!!!!COUNTRY ANIMATIONS!!!!!!!*/
+
+/*!!!!!!!COUNTRY ANIMATIONS!!!!!!!*/
