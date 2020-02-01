@@ -20,21 +20,14 @@
          asiaElements.hover(
             function () {
                asiaElements
-                  .css("stroke", "black")
-                  .css("fill", "red");
+                  .css("stroke","black")
+                  .css("transition","1s")
             },
             function () {
                asiaElements
-                  .css("stroke", "white")
-                  .css("fill", "#fff0d7");
+                  .css("stroke","white")
             }
          );
-         // .css("stroke", "black");
-
-         // setInterval(function () {
-         //    let ae = $(".water, .BlueWater, .WhiteWater");
-         //    console.log("count: " + ae.length)
-         // }, 500);
 
          for (var i = 0; i < 150; i++) { AnimateWater(40, 24, "water"); }
          for (var i = 0; i < 100; i++) { AnimateWater(40, 24, "BlueWater"); }
