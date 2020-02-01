@@ -3,7 +3,7 @@
 
 <head>
    <meta charset="UTF-8">
-   <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <title>Document</title>
    <link rel="stylesheet" type="text/css" href="../css/Map.css">
@@ -41,15 +41,25 @@
                .css("fill", "red")
             //MCanvas.attr("viewBox", "700 100 1250 663");
 
-            MCanvas.attr("overflow", "hidden");
-            MCanvas.attr("height", "5%");
-            MCanvas.css("margin-left", "0%");
-            MCanvas.css("transform", "scale(2)");
-            MCanvas.css("transition", "1s");
-            BGcanvas.css("transform", "scale(2)");
-            BGcanvas.css("transition", "1s");
-            //BGcanvas.attr("viewBox","0 0 1500 755")
-            BGcanvas.attr("overflow","hidden")
+            MCanvas
+               .attr("viewBox","0 0 2100 1000")
+               //.css("overflow", "visible")
+               .attr("padding-right","40%")
+               .attr("height", "5%")
+               .css("margin-left", "0%")
+               .css("transform", "scale(1.7)")
+               .css("transition", "1s")
+               .css("padding-top","5.5%")
+               .css("padding-right","57%");
+            BGcanvas
+               .css("transform", "scale(1.7)")
+               .css("transition", "1s")
+               .attr("overflow","hidden")
+               .css("padding-top","5.5%")
+               .css("padding-right","78%")
+               .attr("padding-right","78%")
+               .attr("viewBox","0 0 3700 1652")
+               
          });
 
          for (var i = 0; i < 150; i++) { AnimateWater(40, 24, "water"); }
