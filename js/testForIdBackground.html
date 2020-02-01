@@ -3,7 +3,7 @@
 
 <head>
    <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <title>Document</title>
    <link rel="stylesheet" type="text/css" href="../css/Map.css">
@@ -11,23 +11,46 @@
    <script src="MapScripts.js"></script>
    <script src="map.js"></script>
    <script>
+
+      var onMainMenu = true;
       window.onload = function () {
          document.getElementById("Map").innerHTML = Map;
          InitialiseMap(40, 24, "BG");
-
+         var MCanvas = $("#SVGRoot");
+         var BGcanvas = $("#triangle");
          var asiaElements = $(".Asia");
 
          asiaElements.hover(
             function () {
-               asiaElements
-                  .css("stroke","black")
-                  .css("transition","1s")
+               if (onMainMenu) {
+                  asiaElements
+                     .css("stroke", "black")
+                     .css("transition", "0.8s")
+               }
             },
             function () {
+
                asiaElements
-                  .css("stroke","white")
+                  .css("stroke", "white")
             }
          );
+
+         asiaElements.on("click", function () {
+            onMainMenu = false;
+            asiaElements
+               .css("fill", "red")
+            //MCanvas.attr("viewBox", "700 100 1250 663");
+
+            MCanvas.attr("overflow", "hidden");
+            MCanvas.attr("height", "5%");
+            MCanvas.css("margin-left", "0%");
+            MCanvas.css("transform", "scale(2)");
+            MCanvas.css("transition", "1s");
+            BGcanvas.css("transform", "scale(2)");
+            BGcanvas.css("transition", "1s");
+            //BGcanvas.attr("viewBox","0 0 1500 755")
+            BGcanvas.attr("overflow","hidden")
+         });
 
          for (var i = 0; i < 150; i++) { AnimateWater(40, 24, "water"); }
          for (var i = 0; i < 100; i++) { AnimateWater(40, 24, "BlueWater"); }
@@ -53,6 +76,8 @@
    <div id="Map"></div>
    <div id="BG" style="position: relative; overflow:hidden;"></div>
 </body>
+
 </html>
 </body>
+
 </html>
