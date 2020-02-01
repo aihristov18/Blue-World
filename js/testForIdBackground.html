@@ -19,60 +19,150 @@
          var MCanvas = $("#SVGRoot");
          var BGcanvas = $("#triangle");
          var asiaElements = $(".Asia");
+         var europeanElements = $(".Europe");
+         var americanElements = $(".America");
+         var oceanianElements = $(".Oceania");
+         var africanElements = $(".Africa");
+         var sAmericanElements = $(".SouthAmerica");
+
+
+
+         europeanElements.hover(function () {
+            if (onMainMenu) {
+               europeanElements
+                  .css("stroke", "white")
+                  .css("transition", "0.8s")
+            }
+         }, function () {
+            if (onMainMenu) {
+               europeanElements
+                  .css("stroke", "black")
+            }
+         });
+
+         africanElements.hover(function () {
+            if (onMainMenu) {
+               africanElements
+                  .css("stroke", "white")
+                  .css("transition", "0.8s")
+            }
+         }, function () {
+            if (onMainMenu) {
+               africanElements
+                  .css("stroke", "black")
+            }
+         });
+
+         sAmericanElements.hover(function () {
+            if (onMainMenu) {
+               sAmericanElements
+                  .css("stroke", "white")
+                  .css("transition", "0.8s")
+            }
+         }, function () {
+            if (onMainMenu) {
+               sAmericanElements
+                  .css("stroke", "black")
+            }
+         });
+
+         oceanianElements.hover(function () {
+            if (onMainMenu) {
+               oceanianElements
+                  .css("stroke", "white")
+                  .css("transition", "0.8s")
+            }
+         }, function () {
+            if (onMainMenu) {
+               oceanianElements
+                  .css("stroke", "black")
+            }
+         })
+
+         americanElements.hover(function () {
+            if (onMainMenu) {
+               americanElements
+                  .css("stroke", "white")
+                  .css("transition", "0.8s")
+            }
+         }, function () {
+            if (onMainMenu) {
+               americanElements
+                  .css("stroke", "black")
+            }
+         })
 
          asiaElements.hover(
             function () {
                if (onMainMenu) {
                   asiaElements
-                     .css("stroke", "black")
+                     .css("stroke", "white")
                      .css("transition", "0.8s")
                }
             },
             function () {
-
-               asiaElements
-                  .css("stroke", "white")
+               if (onMainMenu) {
+                  asiaElements
+                     .css("stroke", "black")
+               }
             }
          );
 
          asiaElements.on("click", function () {
             onMainMenu = false;
             asiaElements
-               .css("fill", "red")
-            //MCanvas.attr("viewBox", "700 100 1250 663");
-
+               .css("stroke", "white")
             MCanvas
-               .attr("viewBox","0 0 2100 1000")
+               .attr("viewBox", "0 0 2100 1000")
                //.css("overflow", "visible")
-               .attr("padding-right","40%")
+               .attr("padding-right", "40%")
                .attr("height", "5%")
                .css("margin-left", "0%")
                .css("transform", "scale(1.7)")
                .css("transition", "1s")
-               .css("padding-top","5.5%")
-               .css("padding-right","57%");
+               .css("padding-top", "5.5%")
+               .css("padding-right", "57%");
             BGcanvas
                .css("transform", "scale(1.7)")
                .css("transition", "1s")
-               .attr("overflow","hidden")
-               .css("padding-top","5.5%")
-               .css("padding-right","78%")
-               .attr("padding-right","78%")
-               .attr("viewBox","0 0 3700 1652")
-               
+               .attr("overflow", "hidden")
+               .css("padding-top", "5.5%")
+               .attr("viewBox", "0 0 3700 1652")
+            $(".Unclear.Asia")
+               .css("animation-name", "neutral")
+               .css("animation-duration","4s")
+               .css("animation-iteration-count","infinite");
+            $("#Russia")
+               .css("fill", "#003399");
+            $("#China")
+               .css("fill", "#cc0000");
+            $("#India")
+               .css("fill", "#ff8533");
          });
+         // $("#Russia").hover(function(){
+         //    if(onMainMenu==false)
+         //    {
+         //       $("#Russia").css("fill","#003399");
+         //    }
+         // },
+         // function(){
+         //    if(onMainMenu==false)
+         //    {
+         //       $("#Russia").css("fill","#fff0d7");
+         //    }
+         // });
 
-         for (var i = 0; i < 150; i++) { AnimateWater(40, 24, "water"); }
+         for (var i = 0; i < 50; i++) { AnimateWater(40, 24, "water"); }
          for (var i = 0; i < 100; i++) { AnimateWater(40, 24, "BlueWater"); }
          for (var i = 0; i < 50; i++) { AnimateWater(40, 24, "WhiteWater"); }
 
          setTimeout(function () {
-            for (var i = 0; i < 150; i++) { AnimateWater(40, 24, "water"); }
+            for (var i = 0; i < 50; i++) { AnimateWater(40, 24, "water"); }
             for (var i = 0; i < 100; i++) { AnimateWater(40, 24, "BlueWater"); }
             for (var i = 0; i < 50; i++) { AnimateWater(40, 24, "WhiteWater"); }
 
             setTimeout(function () {
-               for (var i = 0; i < 150; i++) { AnimateWater(40, 24, "water"); }
+               for (var i = 0; i < 50; i++) { AnimateWater(40, 24, "water"); }
                for (var i = 0; i < 100; i++) { AnimateWater(40, 24, "BlueWater"); }
                for (var i = 0; i < 50; i++) { AnimateWater(40, 24, "WhiteWater"); }
             }, 2000);
@@ -85,6 +175,7 @@
 <body>
    <div id="Map"></div>
    <div id="BG" style="position: relative; overflow:hidden;"></div>
+   <hr style="color:white">
 </body>
 
 </html>

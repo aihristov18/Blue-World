@@ -1,5 +1,9 @@
+body{
+    background-color:#222334;
+}
 #triangle{
     width:100%;
+    background-color: white;
  }
  #SVGRoot{
      width:100%;
@@ -21,61 +25,57 @@
   }
 /*!!!!!!!!WATER ANIMATIONS!!!!!!!!*/
   @keyframes wot{
-      0% {fill:#003851;}
-      50%{fill:#3b89ac;}
-      0% {fill:#003851;}
+      0% {fill:#0184a9;}
+      50%{fill:#01bfc4;}
+      100% {fill:#0184a9;}
   }
   @keyframes wat{
-      0% {fill:#003851;}
-      50%{fill:#22646e;}
-      0% {fill:#003851;}
+      0% {fill:#0184a9;}
+      50%{fill:#a9e8db;}
+      100% {fill:#0184a9;}
   }
   @keyframes wet{
-      0% {fill:#003851;}
-      50%{fill:#bfd2d9;}
-      0% {fill:#003851;}
+      0% {fill:#0184a9;}
+      50%{fill:#e0f7e6;}
+      100% {fill:#0184a9;}
   }
   *{
       margin:0;
   }
 
   .RegularPoly{
-      fill:#003851;
+      fill:#0184a9;
   }
   .water {
       animation-name: wat;
-      animation-duration: 4s;
+      animation-duration: 6s;
   }
   .WhiteWater{
       animation-name: wet;
-      animation-duration:4s;
+      animation-duration:6s;
   }
   .BlueWater{
       animation-name:wot;
-      animation-duration:4s;
+      animation-duration:6s;
   }
 /*!!!!!!!!WATER ANIMATIONS!!!!!!!!*/
 
 /*!!!!!!!COUNTRY ANIMATIONS!!!!!!!*/
-.Asia{
-    fill:#fff0d7;
-    stroke:#ffffff;
+
+@keyframes neutral{
+    0% {fill:#555555;}
+    50%{fill:#777777;}
+    100% {fill:#555555;}
+}
+.Asia, .Africa, .America, .Europe, .SouthAmerica, .Oceania{
+    fill:#f3be5c;
+    stroke:black ;
     stroke-width:5px !important;
+    
 }
 
-.Africa{
-    fill:#dde0d7;
-}
 .America{
-    fill:blue !important;
+    stroke-width:2px !important;
 }
-.Europe{
-    fill:yellow;
-}
-.SouthAmerica{
-    fill:orange;
-}
-.Oceania{
-    fill:purple;
-}
+
 /*!!!!!!!COUNTRY ANIMATIONS!!!!!!!*/
