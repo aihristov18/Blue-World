@@ -1,27 +1,28 @@
 body {
     font-family: 'Roboto Condensed', sans-serif;  
     font-size: 20px;
-    overflow-x: hidden;
+    overflow: hidden;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 1px;
     height: 100vh;
+    background-color: #23807e;
 }
 
 
-/* \/-------------\/------------\/ Background image \/-------------\/------------\/ */
+/* \/-------------\/------------\/ Background image \/-------------\/------------\/
 
 .background {
   background-image: url(../img/BackgroundOceanBlurred3.png);
-  min-height: 800px;
+  height: 1080px;
   margin: -10px;
-  background-attachment: fixed;
+  background-attachment: absolute;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-/* /\-------------/\------------/\ Background image /\-------------/\------------/\ */
+/\-------------/\------------/\ Background image /\-------------/\------------/\ */
 
 
 
@@ -143,7 +144,7 @@ body {
   
 }
 .middle{
-  position: relative;
+  position: fixed;
   top: 15vw;
   left: 50%;
   transform: translate(-50%,-50%);
@@ -164,8 +165,11 @@ body {
   transition: 0.4s;
   border-radius: 60px;
 }
+.bar-clicked {
+  background-color: red;
+}
 .bar:hover{
-  background: #fff;
+  background-color: #fff;
 }
 
 input[name="r"]{
@@ -197,12 +201,7 @@ input[name="r"]{
 #r3:checked ~ .s1{
   margin-left: -40%;
 }
-#r4:checked ~ .s1{
-  margin-left: -60%;
-}
-#r5:checked ~ .s1{
-  margin-left: -80%;
-}
+
 
 
 /* /\-------------/\------------/\    Slideshow   /\-------------/\------------/\ */
