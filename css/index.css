@@ -134,13 +134,13 @@ body {
 
 
 .slidershow{
-  width: 700px;
-  height: 400px;
+  width: 50%;
+  height: 50%;
   overflow: hidden;
 }
 .middle{
-  position: absolute;
-  top: 50%;
+  position: relative;
+  top: 15vw;
   left: 50%;
   transform: translate(-50%,-50%);
 }
