@@ -16,6 +16,7 @@
       window.onload = function () {
          document.getElementById("Map").innerHTML = Map;
          InitialiseMap(40, 24, "BG");
+         var inAsia = false, inEurope = false, inAmerica = false, inAfrica = false, inOceania = false, inSouthAmerica = false;
          var MCanvas = $("#SVGRoot");
          var BGcanvas = $("#triangle");
          var asiaElements = $(".Asia");
@@ -108,49 +109,85 @@
             }
          );
 
+
+         //ASIA ZOOM IN
          asiaElements.on("click", function () {
-            onMainMenu = false;
-            asiaElements
-               .css("stroke", "white")
-            MCanvas
-               .attr("viewBox", "0 0 2100 1000")
-               //.css("overflow", "visible")
-               .attr("padding-right", "40%")
-               .attr("height", "5%")
-               .css("margin-left", "0%")
-               .css("transform", "scale(1.7)")
-               .css("transition", "1s")
-               .css("padding-top", "5.5%")
-               .css("padding-right", "57%");
-            BGcanvas
-               .css("transform", "scale(1.7)")
-               .css("transition", "1s")
-               .attr("overflow", "hidden")
-               .css("padding-top", "5.5%")
-               .attr("viewBox", "0 0 3700 1652")
-            $(".Unclear.Asia")
-               .css("animation-name", "neutral")
-               .css("animation-duration","4s")
-               .css("animation-iteration-count","infinite");
-            $("#Russia")
-               .css("fill", "#003399");
-            $("#China")
-               .css("fill", "#cc0000");
-            $("#India")
-               .css("fill", "#ff8533");
+            if (onMainMenu) {
+               onMainMenu = false;
+               asiaElements
+                  .css("stroke", "white")
+               MCanvas
+                  .attr("viewBox", "0 0 2100 1000")
+                  //.css("overflow", "visible")
+                  .attr("padding-right", "40%")
+                  .attr("height", "5%")
+                  .css("margin-left", "0%")
+                  .css("transform", "scale(1.7)")
+                  .css("transition", "1s")
+                  .css("padding-top", "5.5%")
+                  .css("padding-right", "57%");
+               BGcanvas
+                  .css("transform", "scale(1.7)")
+                  .css("transition", "1s")
+                  .attr("overflow", "hidden")
+                  .css("padding-top", "5.5%")
+                  .attr("viewBox", "0 0 3700 1652")
+               $(".Unclear.Asia")
+                  .css("animation-name", "neutral")
+                  .css("animation-duration", "4s")
+                  .css("animation-iteration-count", "infinite");
+               $("#Russia")
+                  .css("fill", "#003399");
+               $("#China")
+                  .css("fill", "#cc0000");
+               $("#India")
+                  .css("fill", "#ff8533");
+            }
          });
-         // $("#Russia").hover(function(){
-         //    if(onMainMenu==false)
-         //    {
-         //       $("#Russia").css("fill","#003399");
-         //    }
-         // },
-         // function(){
-         //    if(onMainMenu==false)
-         //    {
-         //       $("#Russia").css("fill","#fff0d7");
-         //    }
-         // });
+
+         //EUROPE ZOOM IN
+         europeanElements.on("click", function () {
+            if (onMainMenu) {
+               onMainMenu = false;
+               europeanElements
+                  .css("stroke", "white")
+               MCanvas
+                  .css("transform", "scale(4)")
+                  .css("padding-top", "14%")
+                  .css("padding-left", "6%")
+                  .attr("viewBox", "0 0 2100 820")
+                  .css("overflow", "hidden")
+                  .css("transition", "1s");
+               BGcanvas
+                  .css("transform", "scale(4)")
+                  .css("transition", "1s")
+                  .attr("overflow", "hidden")
+                  .css("padding-top", "12%")
+                  .attr("viewBox", "0 0 3700 1400")
+            }
+         });
+
+         //Africa Zoom in
+         africanElements.on("click", function () {
+            if (onMainMenu) {
+               onMainMenu = false;
+               africanElements.css("stroke", "white")
+               MCanvas
+                  .css("transform", "scale(2)")
+                  .css("padding-bottom", "27%")
+                  .css("overflow", "hidden")
+                  .attr("viewBox", "0 0 2100 892")
+                  .css("transition", "1s");
+               BGcanvas
+               .css("overflow", "hidden")
+                  .css("transform", "scale(2)")
+                  .css("transition", "1s")
+                  .attr("viewBox","0 0 3700 1500")
+                  .css("padding-bottom","20%")
+                  .css("padding-right","10%")
+            }
+         });
+
 
          for (var i = 0; i < 50; i++) { AnimateWater(40, 24, "water"); }
          for (var i = 0; i < 100; i++) { AnimateWater(40, 24, "BlueWater"); }
@@ -169,12 +206,55 @@
          }, 2000);
 
       }
+
+
+      function zoomOut() {
+         inAfrica = false;
+         inAmerica = false;
+         inEurope = false;
+         inOceania = false;
+         inSouthAmerica = false;
+         inAsia = false;
+         var MCanvas = $("#SVGRoot");
+         var BGcanvas = $("#triangle");
+         var asiaElements = $(".Asia");
+         onMainMenu = true;
+         asiaElements
+            .css("stroke", "black")
+         MCanvas
+            .attr("viewBox", "0 0 2100 1100")
+            //.css("overflow", "visible")
+            .attr("padding-right", "")
+            .attr("height", "")
+            .css("margin-left", "")
+            .css("transform", "scale(1)")
+            .css("transition", "1s")
+            .css("padding-top", "")
+            .css("padding-right", "")
+            .css("padding-left", "")
+            .css("padding-bottom", "")
+         BGcanvas
+            .css("padding-bottom","")
+            .css("transform", "scale(1)")
+            .css("transition", "1s")
+            .attr("overflow", "hidden")
+            .css("padding-top", "")
+            .attr("viewBox", "0 0 3700 1860");
+         $(".Unclear.Asia")
+            .css("animation-name", "")
+            .css("animation-duration", "")
+            .css("animation-iteration-count", "");
+         asiaElements
+            .css("fill", "#f3be5c")
+      }
+
    </script>
 </head>
 
 <body>
    <div id="Map"></div>
    <div id="BG" style="position: relative; overflow:hidden;"></div>
+   <button style="position: absolute; z-index: 3; float:right;" onclick="zoomOut()">Zoom out</button>
    <hr style="color:white">
 </body>
 
