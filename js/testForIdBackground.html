@@ -16,6 +16,7 @@
       window.onload = function () {
          document.getElementById("Map").innerHTML = Map;
          InitialiseMap(40, 24, "BG");
+      
          var inAsia = false, inEurope = false, inAmerica = false, inAfrica = false, inOceania = false, inSouthAmerica = false;
          var MCanvas = $("#SVGRoot");
          var BGcanvas = $("#triangle");
@@ -179,12 +180,69 @@
                   .attr("viewBox", "0 0 2100 892")
                   .css("transition", "1s");
                BGcanvas
-               .css("overflow", "hidden")
+                  .css("overflow", "hidden")
                   .css("transform", "scale(2)")
                   .css("transition", "1s")
-                  .attr("viewBox","0 0 3700 1500")
-                  .css("padding-bottom","20%")
-                  .css("padding-right","10%")
+                  .attr("viewBox", "0 0 3700 1850")
+            }
+         });
+
+         //S.America zoom-in
+         sAmericanElements.on("click", function () {
+            if (onMainMenu) {
+               onMainMenu = false;
+               sAmericanElements.css("stroke", "white")
+               MCanvas
+                  .css("transition", "1s")
+                  .css("transform", "scale(2)")
+                  .attr("viewBox", "0 0 2100 1100")
+                  .css("margin-left", "50%")
+                  .css("padding-bottom", "50%")
+                  .css("overflow", "hidden")
+               BGcanvas
+                  .css("transition", "1s")
+                  .css("overflow", "hidden")
+                  .css("transform", "scale(2)")
+                  .attr("viewBox", "0 100 3700 1860")
+            }
+         });
+
+         //America zoom-in
+         americanElements.on("click", function () {
+            if (onMainMenu) {
+               onMainMenu = false;
+               sAmericanElements.css("stroke", "white")
+               MCanvas
+                  .css("overflow", "hidden")
+                  .css("transition", "1s")
+                  .css("transform", "scale(2)")
+                  .css("padding-top", "13%")
+                  .css("padding-left", "35%")
+                  .css("padding-top", "10%")
+                  .attr("viewBox", "0 0 2100 912")
+               BGcanvas
+                  .css("transition", "1s")
+                  .css("overflow", "hidden")
+                  .css("transform", "scale(2)")
+            }
+         });
+
+         //Oceania zoom-in
+         oceanianElements.on("click", function () {
+            if (onMainMenu) {
+               onMainMenu = false;
+               oceanianElements.css("stroke", "white")
+               MCanvas
+                  .css("transition", "1s")
+                  .css("overflow", "hidden")
+                  .css("transform", "scale(3)")
+                  .css("padding-right","100%")
+                  .css("padding-bottom","38%")
+                  //.attr("viewBox","700 260 2100 1100")
+               BGcanvas
+                  .css("transition", "1s")
+                  .css("overflow", "hidden")
+                  .css("transform", "scale(3)")
             }
          });
 
@@ -209,12 +267,12 @@
 
 
       function zoomOut() {
-         inAfrica = false;
-         inAmerica = false;
-         inEurope = false;
-         inOceania = false;
-         inSouthAmerica = false;
-         inAsia = false;
+
+         var europeanElements = $(".Europe");
+         var americanElements = $(".America");
+         var oceanianElements = $(".Oceania");
+         var africanElements = $(".Africa");
+         var sAmericanElements = $(".SouthAmerica");
          var MCanvas = $("#SVGRoot");
          var BGcanvas = $("#triangle");
          var asiaElements = $(".Asia");
@@ -234,7 +292,9 @@
             .css("padding-left", "")
             .css("padding-bottom", "")
          BGcanvas
-            .css("padding-bottom","")
+            .css("margin-top", "")
+            .css("margin-bottom", "")
+            .css("padding-bottom", "")
             .css("transform", "scale(1)")
             .css("transition", "1s")
             .attr("overflow", "hidden")
@@ -244,8 +304,18 @@
             .css("animation-name", "")
             .css("animation-duration", "")
             .css("animation-iteration-count", "");
-         asiaElements
-            .css("fill", "#f3be5c")
+         asiaElements.css("fill", "#f3be5c");
+         oceanianElements.css("fill", "#f3be5c");
+         africanElements.css("fill", "#f3be5c");
+         americanElements.css("fill", "#f3be5c");
+         sAmericanElements.css("fill", "#f3be5c");
+         europeanElements.css("fill", "#f3be5c");
+         asiaElements.css("stroke", "black");
+         oceanianElements.css("stroke", "black");
+         africanElements.css("stroke", "black");
+         americanElements.css("stroke", "black");
+         sAmericanElements.css("stroke", "black");
+         europeanElements.css("stroke", "black");
       }
 
    </script>
