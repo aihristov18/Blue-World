@@ -78,4 +78,16 @@ body{
     stroke-width:2px !important;
 }
 
+#infoBox{
+    top: 0px;
+    left: 0px;
+    display:none;
+    position: absolute;
+    background-color:#222334;
+    border: 5px solid white;
+    color:white;
+    border-radius:20px;
+    padding:10px;
+    z-index:3;
+}
 /*!!!!!!!COUNTRY ANIMATIONS!!!!!!!*/

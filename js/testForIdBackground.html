@@ -16,7 +16,7 @@
       window.onload = function () {
          document.getElementById("Map").innerHTML = Map;
          InitialiseMap(40, 24, "BG");
-      
+
          var inAsia = false, inEurope = false, inAmerica = false, inAfrica = false, inOceania = false, inSouthAmerica = false;
          var MCanvas = $("#SVGRoot");
          var BGcanvas = $("#triangle");
@@ -138,7 +138,8 @@
                   .css("animation-duration", "4s")
                   .css("animation-iteration-count", "infinite");
                $("#Russia")
-                  .css("fill", "#003399");
+                  .css("fill", "#003399")
+                  .hover(function () {}, function () { $("#infoBox").css("display", "none") })
                $("#China")
                   .css("fill", "#cc0000");
                $("#India")
@@ -236,9 +237,9 @@
                   .css("transition", "1s")
                   .css("overflow", "hidden")
                   .css("transform", "scale(3)")
-                  .css("padding-right","100%")
-                  .css("padding-bottom","38%")
-                  //.attr("viewBox","700 260 2100 1100")
+                  .css("padding-right", "100%")
+                  .css("padding-bottom", "38%")
+               //.attr("viewBox","700 260 2100 1100")
                BGcanvas
                   .css("transition", "1s")
                   .css("overflow", "hidden")
@@ -322,6 +323,7 @@
 </head>
 
 <body>
+   <div id="infoBox"></div>
    <div id="Map"></div>
    <div id="BG" style="position: relative; overflow:hidden;"></div>
    <button style="position: absolute; z-index: 3; float:right;" onclick="zoomOut()">Zoom out</button>

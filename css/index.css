@@ -102,7 +102,8 @@ body {
 
 
 .menu .menuContent {               /* content in the menu */
-  position: absolute;
+  /* position: absolute; */
+  margin-top:-4px;
   width: 100%;
   height: 100%;
   line-height: 40px;
@@ -122,8 +123,10 @@ body {
   color: #ffffff;
   transition: opacity 0.5s ease 0.3s;
   cursor: pointer;
-  position: relative;
+  /* position: absolute; */
 }
+
+
 
 
 /* /\-------------/\------------/\ Navigation Bar /\-------------/\------------/\ */
@@ -134,9 +137,10 @@ body {
 
 
 .slidershow{
-  width: 50%;
-  height: 50%;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
+  
 }
 .middle{
   position: relative;
