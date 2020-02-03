@@ -139,7 +139,7 @@ body {
 
 .slidershow{
   width: 100%;
-  height: 100%;
+  height: 139%;
   overflow: hidden;
   
 }
@@ -165,9 +165,7 @@ body {
   transition: 0.4s;
   border-radius: 60px;
 }
-.bar-clicked {
-  background-color: red;
-}
+
 .bar:hover{
   background-color: #fff;
 }
