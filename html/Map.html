@@ -5,13 +5,25 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>Document</title>
+   <title>Blue World Map</title>
+   <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
    <link rel="stylesheet" type="text/css" href="../css/Map.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-   <script src="MapScripts.js"></script>
-   <script src="map.js"></script>
+   <script src="../js/MapScripts.js"></script>
+   <script src="../js/map.js"></script>
+   <script src="../js/data.js"></script>
    <script>
-
+      function giveData(element) {
+         for (var i = 0; i < dataArray.length; i++) {
+            if (dataArray[i].country == element) {
+               getInfo(dataArray[i].dataPoint, "#population", dataArray[i].url);
+               getInfo(dataArray[i].GDPdataPoint,"#GDP",dataArray[i].GDPurl)
+               $("#countryName").html(dataArray[i].name);
+               $("#popSub").html("Population:");
+               $("#dataDiv").css("display","block")
+            }
+         }
+      }
       var onMainMenu = true;
       window.onload = function () {
          document.getElementById("Map").innerHTML = Map;
@@ -34,11 +46,13 @@
                europeanElements
                   .css("stroke", "white")
                   .css("transition", "0.8s")
+                  .css("cursor", "pointer")
             }
          }, function () {
             if (onMainMenu) {
                europeanElements
                   .css("stroke", "black")
+                  .css("cursor", "")
             }
          });
 
@@ -47,11 +61,13 @@
                africanElements
                   .css("stroke", "white")
                   .css("transition", "0.8s")
+                  .css("cursor", "pointer")
             }
          }, function () {
             if (onMainMenu) {
                africanElements
                   .css("stroke", "black")
+                  .css("cursor", "")
             }
          });
 
@@ -60,11 +76,13 @@
                sAmericanElements
                   .css("stroke", "white")
                   .css("transition", "0.8s")
+                  .css("cursor", "pointer")
             }
          }, function () {
             if (onMainMenu) {
                sAmericanElements
                   .css("stroke", "black")
+                  .css("cursor", "")
             }
          });
 
@@ -73,11 +91,13 @@
                oceanianElements
                   .css("stroke", "white")
                   .css("transition", "0.8s")
+                  .css("cursor", "pointer")
             }
          }, function () {
             if (onMainMenu) {
                oceanianElements
                   .css("stroke", "black")
+                  .css("cursor", "")
             }
          })
 
@@ -86,11 +106,13 @@
                americanElements
                   .css("stroke", "white")
                   .css("transition", "0.8s")
+                  .css("cursor", "pointer")
             }
          }, function () {
             if (onMainMenu) {
                americanElements
                   .css("stroke", "black")
+                  .css("cursor", "")
             }
          })
 
@@ -100,12 +122,14 @@
                   asiaElements
                      .css("stroke", "white")
                      .css("transition", "0.8s")
+                     .css("cursor", "pointer")
                }
             },
             function () {
                if (onMainMenu) {
                   asiaElements
                      .css("stroke", "black")
+                     .css("cursor", "")
                }
             }
          );
@@ -114,9 +138,14 @@
          //ASIA ZOOM IN
          asiaElements.on("click", function () {
             if (onMainMenu) {
+               $("#countryName").html("");
+               $("#popSub").html("");
+               $("#population").html("");
+               // $().on("click",function(){console.log("test");});
                onMainMenu = false;
                asiaElements
                   .css("stroke", "white")
+                  .css("cursor", "")
                MCanvas
                   .attr("viewBox", "0 0 2100 1000")
                   //.css("overflow", "visible")
@@ -137,14 +166,22 @@
                   .css("animation-name", "neutral")
                   .css("animation-duration", "4s")
                   .css("animation-iteration-count", "infinite");
-               $("#Russia")
-                  .css("fill", "#003399")
-                  .hover(function () {}, function () { $("#infoBox").css("display", "none") })
+               $("#Russia").on("click", function () {
+                  giveData("#Russia");
+               })
                $("#China")
                   .css("fill", "#cc0000");
                $("#India")
                   .css("fill", "#ff8533");
             }
+         });
+
+         $("#Russia").hover(function () {
+            if (onMainMenu == false)
+               $("#Russia").css("fill", "#ffc354")
+         }, function () {
+            if (onMainMenu == false)
+               $("#Russia").css("fill", "#e3a22b")
          });
 
          //EUROPE ZOOM IN
@@ -248,6 +285,7 @@
          });
 
 
+
          for (var i = 0; i < 50; i++) { AnimateWater(40, 24, "water"); }
          for (var i = 0; i < 100; i++) { AnimateWater(40, 24, "BlueWater"); }
          for (var i = 0; i < 50; i++) { AnimateWater(40, 24, "WhiteWater"); }
@@ -317,17 +355,38 @@
          americanElements.css("stroke", "black");
          sAmericanElements.css("stroke", "black");
          europeanElements.css("stroke", "black");
+         $("#dataDiv").css("display","none")
+         // $("#countryName").html("");
+         // $("#popSub").html("");
+         // $("#population").html("");
       }
 
    </script>
 </head>
 
 <body>
-   <div id="infoBox"></div>
+   <div id="label"></div>
    <div id="Map"></div>
    <div id="BG" style="position: relative; overflow:hidden;"></div>
    <button style="position: absolute; z-index: 3; float:right;" onclick="zoomOut()">Zoom out</button>
    <hr style="color:white">
+   <div id="dataDiv">
+      <center>
+         <p id="countryName"></p>
+      </center>
+      <center>
+         <p id="popSub"></p>
+      </center>
+      <center>
+         <p id="population"></p>
+      </center>
+      <center><div id="dataDiv2" class="columns">
+      <p class="sub">Fisheries</p>
+      <p class="stats">negores</p>
+      <p class="sub">Budget</p>
+      <p id="GDP" class="stats"></p>
+      </div></center>
+   </div>
 </body>
 
 </html>

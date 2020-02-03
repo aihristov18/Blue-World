@@ -61,7 +61,10 @@ body{
 /*!!!!!!!!WATER ANIMATIONS!!!!!!!!*/
 
 /*!!!!!!!COUNTRY ANIMATIONS!!!!!!!*/
-
+@keyframes appear{
+    from{opacity:0}
+    to{opacity:1}
+}
 @keyframes neutral{
     0% {fill:#555555;}
     50%{fill:#777777;}
@@ -89,5 +92,53 @@ body{
     border-radius:20px;
     padding:10px;
     z-index:3;
+}
+
+#label{
+    display: none;
+    width:100%;
+    position: absolute;
+    z-index: 3;
+    overflow:hidden;
+}
+
+#countryName{
+
+    color:white;
+    font-size:7vw;
+    font-family: 'Poppins', sans-serif;
+    margin-top:3%;
+}
+#population{
+    color:white;
+    font-size:6vw;
+    font-family: 'Poppins', sans-serif;
+}
+
+#popSub{
+    color:white;
+    font-size:200%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.columns{
+    column-count: 2;
+    column-rule: white solid;
+    color:white;
+    column-gap: 3.5em;
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+.sub{
+    color:white;
+    font-size:5vw;
+    font-family: 'Poppins', sans-serif;
+}
+
+.stats{
+    color:white;
+    font-size:3vw;
+    font-family: 'Poppins', sans-serif;
 }
 /*!!!!!!!COUNTRY ANIMATIONS!!!!!!!*/
