@@ -9,11 +9,6 @@ function getInfo(searchElement, placeElement, url) {
         var dvPopulation = $(parsedHtml).find(searchElement).text();// Give the dvPopulation variable the value of the desired element.
         console.log(dvPopulation);
         $(placeElement).html(dvPopulation);// Replace the element known as placeElement's html with the value of dvPopulation
-
-        // This snippet of code makes sure to get the desired (live) data over a 3 second period of time
-        // setTimeout(function () {
-        //     getInfo(searchElement, placeElement, url);
-        // }, 3000);
     });
 }
 

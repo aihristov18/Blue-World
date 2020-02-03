@@ -16,20 +16,22 @@
       function giveData(element) {
          for (var i = 0; i < dataArray.length; i++) {
             if (dataArray[i].country == element) {
-               getInfo(dataArray[i].dataPoint, "#population", dataArray[i].url);
-               getInfo(dataArray[i].GDPdataPoint,"#GDP",dataArray[i].GDPurl)
+               getInfo(populationDataPoint, "#population", dataArray[i].populationUrl);
+               getInfo(GDPSataPoint, "#GDP", dataArray[i].GDPUrl)
+               getInfo(foodDataPoint, "#food", dataArray[i].FPUrl)
+               getInfo(pollutionDataPoint, "#pollution", dataArray[i].FPUrl)
                $("#countryName").html(dataArray[i].name);
                $("#popSub").html("Population:");
-               $("#dataDiv").css("display","block")
+               $("#dataDiv").css("display", "block")
             }
          }
       }
       var onMainMenu = true;
       window.onload = function () {
-         document.getElementById("Map").innerHTML = Map;
-         InitialiseMap(40, 24, "BG");
+         document.getElementById("Map").innerHTML = Map; // Initialise the Map
+         InitialiseMap(40, 24, "BG"); // Initialise The Background Triangle Grid
 
-         var inAsia = false, inEurope = false, inAmerica = false, inAfrica = false, inOceania = false, inSouthAmerica = false;
+         //Initialise Refrences to the continents
          var MCanvas = $("#SVGRoot");
          var BGcanvas = $("#triangle");
          var asiaElements = $(".Asia");
@@ -39,8 +41,16 @@
          var africanElements = $(".Africa");
          var sAmericanElements = $(".SouthAmerica");
 
+         //Add a stroke of 4px to every continent
+         asiaElements.css("stroke-width", "4px");
+         europeanElements.css("stroke-width", "4px");
+         americanElements.css("stroke-width", "4px");
+         oceanianElements.css("stroke-width", "4px");
+         africanElements.css("stroke-width", "4px");
+         sAmericanElements.css("stroke-width", "4px");
 
-
+         //BEGIN HOVER FUNCTIONALITY//
+         //Each continent's stroke becomes white, the cursor becomes a pointer
          europeanElements.hover(function () {
             if (onMainMenu) {
                europeanElements
@@ -146,6 +156,7 @@
                asiaElements
                   .css("stroke", "white")
                   .css("cursor", "")
+                  .css("stroke-width", "4px")
                MCanvas
                   .attr("viewBox", "0 0 2100 1000")
                   //.css("overflow", "visible")
@@ -163,25 +174,25 @@
                   .css("padding-top", "5.5%")
                   .attr("viewBox", "0 0 3700 1652")
                $(".Unclear.Asia")
-                  .css("animation-name", "neutral")
-                  .css("animation-duration", "4s")
-                  .css("animation-iteration-count", "infinite");
+                  .css("fill", "#796465")
                $("#Russia").on("click", function () {
                   giveData("#Russia");
+                  $("body").css("background-color", "#BDC4A7").css("transition","1s")
                })
-               $("#China")
-                  .css("fill", "#cc0000");
-               $("#India")
-                  .css("fill", "#ff8533");
+               $("#China").css("fill", "#84322E");
+               $("#India").css("fill", "#E8D2AE");
+               $("#middleEast").css("fill", "#D7B29D");
+               $("#Japan").css("fill", "#CB8589");
+               $("#Russia").css("fill", "#BDC4A7")
             }
          });
 
          $("#Russia").hover(function () {
             if (onMainMenu == false)
-               $("#Russia").css("fill", "#ffc354")
+               $("#Russia").css("fill", "#BDC4A7")
          }, function () {
             if (onMainMenu == false)
-               $("#Russia").css("fill", "#e3a22b")
+               $("#Russia").css("fill", "#BDC4A7")
          });
 
          //EUROPE ZOOM IN
@@ -190,6 +201,7 @@
                onMainMenu = false;
                europeanElements
                   .css("stroke", "white")
+                  .css("stroke-width", "3px")
                MCanvas
                   .css("transform", "scale(4)")
                   .css("padding-top", "14%")
@@ -203,6 +215,11 @@
                   .attr("overflow", "hidden")
                   .css("padding-top", "12%")
                   .attr("viewBox", "0 0 3700 1400")
+               $(".Unclear.Europe, #Spain, #Benelux, #UkIrl").css("fill", "#9CAFB7 ");
+               $("#Germany").css("fill", "#949D6A");
+               $("#France").css("fill", "#ADB993");
+               $("#Bulgaria").css("fill", "#D0D38F");
+               $("#UK, #NIrl").css("fill", "#BFEDC1 ");
             }
          });
 
@@ -262,6 +279,10 @@
                   .css("transition", "1s")
                   .css("overflow", "hidden")
                   .css("transform", "scale(2)")
+               $(".Unclear.America, #Greenland").css("fill","#5A7684")
+               $("#USA, #Alaska, #Unclear32").css("fill","#8FBDD3")
+               $("#Mexico").css("fill","#7EB9C4")
+               $("#Canada, #Unclear25, #Unclear26, #Unclear27, #Unclear29").css("fill","#80CED7")
             }
          });
 
@@ -355,10 +376,11 @@
          americanElements.css("stroke", "black");
          sAmericanElements.css("stroke", "black");
          europeanElements.css("stroke", "black");
-         $("#dataDiv").css("display","none")
+         $("#dataDiv").css("display", "none")
          // $("#countryName").html("");
          // $("#popSub").html("");
          // $("#population").html("");
+         $("body").css("background-color", "#222334")
       }
 
    </script>
@@ -370,22 +392,26 @@
    <div id="BG" style="position: relative; overflow:hidden;"></div>
    <button style="position: absolute; z-index: 3; float:right;" onclick="zoomOut()">Zoom out</button>
    <hr style="color:white">
-   <div id="dataDiv">
+   <div id="dataDiv" style="display:none">
       <center>
          <p id="countryName"></p>
       </center>
-      <center>
-         <p id="popSub"></p>
-      </center>
-      <center>
-         <p id="population"></p>
-      </center>
-      <center><div id="dataDiv2" class="columns">
-      <p class="sub">Fisheries</p>
-      <p class="stats">Test</p>
-      <p class="sub">Budget</p>
-      <p id="GDP" class="stats"></p>
-      </div></center>
+      <div style="display:inline-block; margin-top:3vw;">
+      <p id="popSub" class="sub">Population:</p>
+      <p id="population" class="stats">Retrieving Data...</p>
+      </div>
+      <div style="display:inline-block; float:right; margin-top:3vw;">
+      <p class="sub">Seafood Production Score:</p>
+      <p id="food" class="stats">Retrieving Data...</p>
+      </div>
+      <div>
+      <p class="sub">GDP:</p>
+      <p id="GDP" class="stats">Retrieving Data...</p>
+      </div>
+      <div>
+      <p class="sub">Pollution:</p>
+      <p id="pollution" class="stats">Retrieving Data...</p>
+      </div>
    </div>
 </body>
 

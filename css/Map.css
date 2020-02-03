@@ -1,5 +1,5 @@
 body{
-    background-color:#222334;
+    background-color: #223334;
 }
 #triangle{
     width:100%;
@@ -65,15 +65,15 @@ body{
     from{opacity:0}
     to{opacity:1}
 }
-@keyframes neutral{
-    0% {fill:#555555;}
-    50%{fill:#777777;}
-    100% {fill:#555555;}
-}
+/* @keyframes neutral{
+    0% {fill:#92B4A7;}
+    50%{fill:#93827F;}
+    100% {fill:#92B4A7;}
+} */
 .Asia, .Africa, .America, .Europe, .SouthAmerica, .Oceania{
     fill:#f3be5c;
     stroke:black ;
-    stroke-width:5px !important;
+    stroke-width:5px ;
     
 }
 
@@ -105,40 +105,38 @@ body{
 #countryName{
 
     color:white;
-    font-size:7vw;
+    font-size:3vw;
     font-family: 'Poppins', sans-serif;
     margin-top:3%;
 }
 #population{
-    color:white;
-    font-size:6vw;
-    font-family: 'Poppins', sans-serif;
+    margin-left:8vw;
 }
 
-#popSub{
-    color:white;
-    font-size:200%;
-    font-family: 'Poppins', sans-serif;
-}
+ #popSub{
+    margin-left:13vw;
+} 
 
-.columns{
+/* .columns{
     column-count: 2;
     column-rule: white solid;
     color:white;
     column-gap: 3.5em;
     margin-left: 5vw;
     margin-right: 5vw;
-}
+    column-span: all
+} */
 
 .sub{
     color:white;
-    font-size:5vw;
+    font-size:3vw;
     font-family: 'Poppins', sans-serif;
+    display:"inline-block";
 }
 
 .stats{
-    color:white;
-    font-size:3vw;
+    color:rgb(88, 92, 78);
+    font-size:5vw;
     font-family: 'Poppins', sans-serif;
 }
 /*!!!!!!!COUNTRY ANIMATIONS!!!!!!!*/
