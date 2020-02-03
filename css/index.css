@@ -121,14 +121,36 @@ body {
   display: inline-block;
   margin-left: 50px;
   margin-right: 50px;
-  color: #ffffff;
   transition: opacity 0.5s ease 0.3s;
   cursor: pointer;
-  /* position: absolute; */
+  position: relative;
 }
+a:link{                           /*a normal, unvisited link*/
+  text-decoration: none;
+  color: #ffffff;
+}  
+ 
+a:visited{                        /*a link the user has visited*/
+  text-decoration: none;
+  color: #ffffff;
+}
+ 
+a:hover{                         /*a link when the user mouses over it*/
+  color: #6bd1e0;
+  transition: 0.5s;
+}  
 
-
-
+a:active{                        /*a link the moment it is clicked*/
+  text-decoration: none;
+  color: #ffffff;
+} 
+.here{                          /*this class indicates that you are on this page*/
+  color: #6bd1e0;
+  border-bottom: 1.5px #6bd1e0 solid;
+  border-radius: 10px;
+  padding-right: 1vw;
+  padding-left: 1vw;
+}
 
 /* /\-------------/\------------/\ Navigation Bar /\-------------/\------------/\ */
 
@@ -141,7 +163,7 @@ body {
   width: 100%;
   height: 139%;
   overflow: hidden;
-  
+
 }
 .middle{
   position: fixed;
