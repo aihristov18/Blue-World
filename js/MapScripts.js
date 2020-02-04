@@ -1,5 +1,5 @@
 // the function takes two parameters. First: the DOM path of the desired element in the targeted website. Second: The selctor for the place where the data will be placed. Third: The targeted website's URL.
-function getInfo(searchElement, placeElement, url) {
+function getInfo(searchElement, placeElement, url,message) {
     var content; // this variable will store all of the targeted website's html code
     var cross = "http://www.whateverorigin.org/get?url="; // This variable stores the URL of the proxy server, used to bypass the CORS policy
     $.getJSON(cross + encodeURIComponent(url) + '&callback=?', function (data)// this is getJSON request. We search for the targeted website's adress trough the proxy server
@@ -8,7 +8,7 @@ function getInfo(searchElement, placeElement, url) {
         var parsedHtml = $.parseHTML(content); // Parse all of the targeted website's code in a variable called parsedHtml
         var dvPopulation = $(parsedHtml).find(searchElement).text();// Give the dvPopulation variable the value of the desired element.
         console.log(dvPopulation);
-        $(placeElement).html(dvPopulation);// Replace the element known as placeElement's html with the value of dvPopulation
+        $(placeElement).html(dvPopulation+" "+message);// Replace the element known as placeElement's html with the value of dvPopulation
     });
 }
 

@@ -14,7 +14,10 @@ var dataArray = [ // this array contains the URLs of all the websites we get our
     {
         country:"#China",
         name:"People's Republic Of China",
+        GDPUrl:"https://www.worldometers.info/gdp/china-gdp/",
         url:"http://www.oceanhealthindex.org/region-scores/scores/china",
+        FPUrl:"http://www.oceanhealthindex.org/region-scores/scores/china",
+        populationUrl:"https://www.worldometers.info/world-population/china-population/",
     },
     {
         country:"#USA",

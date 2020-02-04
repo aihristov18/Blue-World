@@ -13,13 +13,18 @@
    <script src="../js/map.js"></script>
    <script src="../js/data.js"></script>
    <script>
-      function giveData(element) {
+      function giveData(element, color) {
+         $("#pollution").html("Retrieving Data...");
+         $("#food").html("Retrieving Data...")
+         $("#population").html("Retrieving Data...")
+         $("#GDP").html("Retrieving Data...")
          for (var i = 0; i < dataArray.length; i++) {
             if (dataArray[i].country == element) {
-               getInfo(populationDataPoint, "#population", dataArray[i].populationUrl);
-               getInfo(GDPSataPoint, "#GDP", dataArray[i].GDPUrl)
-               getInfo(foodDataPoint, "#food", dataArray[i].FPUrl)
-               getInfo(pollutionDataPoint, "#pollution", dataArray[i].FPUrl)
+               getInfo(populationDataPoint, "#population", dataArray[i].populationUrl, "People");
+               getInfo(GDPSataPoint, "#GDP", dataArray[i].GDPUrl, "")
+               getInfo(foodDataPoint, "#food", dataArray[i].FPUrl, "/ 100")
+               getInfo(pollutionDataPoint, "#pollution", dataArray[i].FPUrl, "/ 100")
+               $("body").css("background-color", color).css("transition", "1s")
                $("#countryName").html(dataArray[i].name);
                $("#popSub").html("Population:");
                $("#dataDiv").css("display", "block")
@@ -173,17 +178,21 @@
                   .attr("overflow", "hidden")
                   .css("padding-top", "5.5%")
                   .attr("viewBox", "0 0 3700 1652")
-               $(".Unclear.Asia")
-                  .css("fill", "#796465")
+               //Coloring of The Asian Elements
+               $(".Unclear.Asia").css("fill", "#796465")
                $("#Russia").on("click", function () {
-                  giveData("#Russia");
-                  $("body").css("background-color", "#BDC4A7").css("transition","1s")
-               })
+                  giveData("#Russia", "#BDC4A7");
+               });
+               $(".Asia").hover()
                $("#China").css("fill", "#84322E");
+               $("#China").on("click", function () {
+                  giveData("#China", "#84322E");
+                  $(".stats").css("color","white")
+               });
                $("#India").css("fill", "#E8D2AE");
                $("#middleEast").css("fill", "#D7B29D");
                $("#Japan").css("fill", "#CB8589");
-               $("#Russia").css("fill", "#BDC4A7")
+               $("#Russia").css("fill", "#BDC4A7");
             }
          });
 
@@ -279,10 +288,10 @@
                   .css("transition", "1s")
                   .css("overflow", "hidden")
                   .css("transform", "scale(2)")
-               $(".Unclear.America, #Greenland").css("fill","#5A7684")
-               $("#USA, #Alaska, #Unclear32").css("fill","#8FBDD3")
-               $("#Mexico").css("fill","#7EB9C4")
-               $("#Canada, #Unclear25, #Unclear26, #Unclear27, #Unclear29").css("fill","#80CED7")
+               $(".Unclear.America, #Greenland").css("fill", "#5A7684")
+               $("#USA, #Alaska, #Unclear32").css("fill", "#8FBDD3")
+               $("#Mexico").css("fill", "#7EB9C4")
+               $("#Canada, #Unclear25, #Unclear26, #Unclear27, #Unclear29").css("fill", "#80CED7")
             }
          });
 
@@ -377,9 +386,10 @@
          sAmericanElements.css("stroke", "black");
          europeanElements.css("stroke", "black");
          $("#dataDiv").css("display", "none")
-         // $("#countryName").html("");
-         // $("#popSub").html("");
-         // $("#population").html("");
+         $("#pollution").html("Retrieving Data...");
+         $("#food").html("Retrieving Data...")
+         $("#population").html("Retrieving Data...")
+         $("#GDP").html("Retrieving Data...")
          $("body").css("background-color", "#222334")
       }
 
@@ -387,7 +397,7 @@
 </head>
 
 <body>
-   <div id="label"></div>
+   <a href="#dataDiv">dadada</a>
    <div id="Map"></div>
    <div id="BG" style="position: relative; overflow:hidden;"></div>
    <button style="position: absolute; z-index: 3; float:right;" onclick="zoomOut()">Zoom out</button>
@@ -396,22 +406,23 @@
       <center>
          <p id="countryName"></p>
       </center>
-      <div style="display:inline-block; margin-top:3vw;">
-      <p id="popSub" class="sub">Population:</p>
-      <p id="population" class="stats">Retrieving Data...</p>
+      <div id="PopulationDiv">
+         <p id="popSub" class="sub">Population:</p>
+         <p id="population" class="stats">Retrieving Data...</p>
       </div>
-      <div style="display:inline-block; float:right; margin-top:3vw;">
-      <p class="sub">Seafood Production Score:</p>
-      <p id="food" class="stats">Retrieving Data...</p>
+      <div id="foodDiv">
+         <p class="sub" id="subFood">Seafood Production Score:</p>
+         <p id="food" class="stats">Retrieving Data...</p>
       </div>
-      <div>
-      <p class="sub">GDP:</p>
-      <p id="GDP" class="stats">Retrieving Data...</p>
+      <div id="GDPDiv">
+         <p class="sub">GDP:</p>
+         <p id="GDP" class="stats">Retrieving Data...</p>
       </div>
-      <div>
-      <p class="sub">Pollution:</p>
-      <p id="pollution" class="stats">Retrieving Data...</p>
+      <div id="pollutionDiv">
+         <p class="sub">Pollution:</p>
+         <p id="pollution" class="stats">Retrieving Data...</p>
       </div>
+      <a href="#Map" class="sub" id="backToMap">Back To Map</a>
    </div>
 </body>
 

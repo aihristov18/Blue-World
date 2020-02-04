@@ -1,3 +1,7 @@
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     background-color: #223334;
 }
@@ -81,25 +85,22 @@ body{
     stroke-width:2px !important;
 }
 
-#infoBox{
-    top: 0px;
-    left: 0px;
-    display:none;
-    position: absolute;
-    background-color:#222334;
-    border: 5px solid white;
-    color:white;
+#backToMap{
+    border: 5px white solid;
     border-radius:20px;
-    padding:10px;
-    z-index:3;
+    padding-right:2vw;
+    padding-left:2vw;
+    transition:1s;
 }
-
-#label{
-    display: none;
-    width:100%;
-    position: absolute;
-    z-index: 3;
-    overflow:hidden;
+#backToMap:visited, #backToMap:active, #backToMap:link{
+    text-decoration: none;
+}
+#backToMap:hover{
+    cursor:pointer;
+    color:rgb(88, 92, 78);
+    background-color:white;
+    transition:1s;
+    border-color:rgb(88, 92, 78);
 }
 
 #countryName{
@@ -110,11 +111,11 @@ body{
     margin-top:3%;
 }
 #population{
-    margin-left:8vw;
+    margin-left:7vw;
 }
 
  #popSub{
-    margin-left:13vw;
+    margin-left:18vw;
 } 
 
 /* .columns{
@@ -136,7 +137,29 @@ body{
 
 .stats{
     color:rgb(88, 92, 78);
-    font-size:5vw;
+    font-size:4vw;
     font-family: 'Poppins', sans-serif;
+}
+
+#subFood{
+    margin-right:7vw;
+    margin-top:-2vw;
+}
+
+#food{
+    margin-left:13vw;
+}
+
+#pollutionDiv{
+display:inline-block;
+}
+#foodDiv{
+display:inline-block;
+}
+#GDPDiv{
+display:inline-block;
+}
+#populationDiv{
+display:inline-block;
 }
 /*!!!!!!!COUNTRY ANIMATIONS!!!!!!!*/
