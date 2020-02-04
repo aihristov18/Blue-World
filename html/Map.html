@@ -13,24 +13,36 @@
    <script src="../js/map.js"></script>
    <script src="../js/data.js"></script>
    <script>
-      function giveData(element, color) {
+      function giveData(element, color) { // Takes 2 Arguments: the id of the country and it's color
+
+         //Reset the previous values of the previous countries thus wiping the data
          $("#pollution").html("...");
          $("#food").html("...")
          $("#population").html("...")
          $("#GDP").html("...")
+
+         //Iterate trough every object in the dataArray array.
          for (var i = 0; i < dataArray.length; i++) {
+            //Check if the 'element' argument passes the .country id of the current object in the dataArray array
             if (dataArray[i].country == element) {
+               //Using the webscraping function, search the specified URLs (third argument)          
+               //in the dataArray array for the specified DOM paths (first argument) and place the text it scrapes in the div with id (second argument)
+               //with an additional message at the end (fourth argument). It is not mandatory and can be filled with "" to display no additional message.       
                getInfo(populationDataPoint, "#population", dataArray[i].populationUrl, "People");
                getInfo(GDPSataPoint, "#GDP", dataArray[i].GDPUrl, "")
                getInfo(foodDataPoint, "#food", dataArray[i].FPUrl, "/ 100")
                getInfo(pollutionDataPoint, "#pollution", dataArray[i].FPUrl, "/ 100")
+               //Set the background color to the country's color
                $("body").css("background-color", color).css("transition", "1s")
+               //display the name of the country
                $("#CountryName").html(dataArray[i].name);
-               $("#popSub").html("Population:");
+               //When all of the requests are sent, set the databoard's display to block, thus making it visible.
                $("#dataDiv").css("display", "block")
             }
          }
       }
+
+      // Initialise the location variables
       var onMainMenu = true;
       var inAsia = false;
       var inAmerica = false;
@@ -39,10 +51,10 @@
       var inSAmerica = false;
       var inEurope = false;
       window.onload = function () {
-         document.getElementById("Map").innerHTML = Map; // Initialise the Map
+         document.getElementById("Map").innerHTML = Map; // Initialise the Map by replacing the #Map div with the code from map.js
          InitialiseMap(40, 24, "BG"); // Initialise The Background Triangle Grid
 
-         //Zoom-out on right click, also hide the context menu
+         //Zoom-out on right click, also hide the context menu, works only on the map
          $('#Map').bind("contextmenu", function (e) {
             zoomOut();
             return false;
@@ -161,11 +173,20 @@
                }
             }
          );
+         //END HOVER FUNCTIONALITY
+
+         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+         //!!!!!!ZOOM IN FUNCTIONALITY FOR ALL CONTINENTS!!!!!!
+         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+         //The zoom in effect is achieved by changing the viewBox, margin and padding attributes of both the Map and Background. 
+         //MCanvas is a Reference to The Map.
+         //BGcanvas is a reference to the background grid
 
 
          //ASIA ZOOM IN
          asiaElements.on("click", function () {
-            inAsia = true;
+            inAsia = true; //Change the location to Asia
             if (onMainMenu && inAsia) {
                onMainMenu = false;
                asiaElements
@@ -189,22 +210,25 @@
                   .attr("viewBox", "0 0 3700 1652")
                //END OF ZOOM IN FUNCTIONALITY
 
-               //Coloring of The Asian Elements
+               //Coloring the Unclear elements of the map
                $(".Unclear.Asia").css("fill", "#796465")
 
                //Russia's hover and onclick code
-               $("#Russia").css("fill", "#BDC4A7");
+               $("#Russia").css("fill", "#BDC4A7");   //Russia's color upon clicking on Asia
                $("#Russia").on("click", function () {
+                  //display Russia's information in the window below the map, change it's color to that of Russia
                   giveData("#Russia", "#BDC4A7");
                });
+               //When hovering over Russia
                $("#Russia").hover(function () {
-                  if (inAsia == true && onMainMenu == false && inAfrica == false && inAmerica == false && inSAmerica == false && inEurope == false) {
-                     $("#Russia").css("stroke", "white");
-                     $("#Russia").css("cursor", "pointer");
+                  if (inAsia == true && onMainMenu == false && inAfrica == false && inAmerica == false && inSAmerica == false && inEurope == false) { //Check the current location
+                     $("#Russia").css("stroke", "white");   //Turns the stroke to white upon selection
+                     $("#Russia").css("cursor", "pointer"); // The cursor becomes a pointer
                   }
                }, function () {
-                  $("#Russia").css("stroke", "black")
-                  $("#Russia").css("cursor", "");
+                  //When not hovering over Russia
+                  $("#Russia").css("stroke", "black") //Make its' stroke regular
+                  $("#Russia").css("cursor", "");     // Make the cursor normal again
                });
 
 
@@ -238,7 +262,10 @@
                   $("#India").css("stroke", "black")
                });
 
+               //Middle East is still W.I.P
                $("#middleEast").css("fill", "#D7B29D");
+
+               //Japan's hover and onclick code
                $("#Japan").css("fill", "#CB8589");
                $("#Japan").on("click", function () {
                   giveData("#Japan", "#CB8589")
@@ -278,7 +305,10 @@
                   .css("padding-top", "12%")
                   .attr("viewBox", "0 0 3700 1400")
                //END OF ZOOM IN FUNCTIONALITY
-               $(".Unclear.Europe, #Spain, #Benelux, #UkIrl").css("fill", "#9CAFB7 ").css("cursor","");
+
+               //Color unclear territories
+               $(".Unclear.Europe, #Spain, #Benelux, #UkIrl").css("fill", "#9CAFB7 ").css("cursor", "");
+
                //Germany's onclick and hover code
                $("#Germany").css("fill", "#949D6A");
                $("#Germany").on("click", function () {
@@ -342,6 +372,7 @@
 
          //Africa Zoom in
 
+         //Africa is still W.I.P, no countries display data
          africanElements.on("click", function () {
             inAfrica = true;
             if (onMainMenu) {
@@ -364,6 +395,7 @@
 
          //S.America zoom-in
 
+         //South America is still W.I.P. no countries display data
          sAmericanElements.on("click", function () {
             inSAmerica = true;
             if (onMainMenu) {
@@ -404,7 +436,10 @@
                   .css("overflow", "hidden")
                   .css("transform", "scale(2)")
                //End of zoom-in feature
-               $(".Unclear.America, #Greenland").css("fill", "#848586").css("cursor","")
+
+               //Color unclear territories
+               $(".Unclear.America, #Greenland").css("fill", "#848586").css("cursor", "")
+
                //USA's hover and onclick code
                $("#USA, #Alaska, #Unclear32").css("fill", "#C6A59F ")
                $("#USA, #Alaska, #Unclear32").on("click", function () {
@@ -419,6 +454,7 @@
                }, function () {
                   $("#USA, #Alaska, #Unclear32").css("stroke", "black")
                });
+
                //Mexico's onclick and hover code
                $("#Mexico").css("fill", "#E0AB96  ")
                $("#Mexico").on("click", function () {
@@ -432,6 +468,8 @@
                }, function () {
                   $("#Mexico").css("stroke", "black")
                });
+
+               //Canada's onclick and hover code
                $("#Canada, #Unclear25, #Unclear26, #Unclear27, #Unclear29").css("fill", "#BAA898")
                $("#Canada, #Unclear25, #Unclear26, #Unclear27, #Unclear29").on("click", function () {
                   giveData("#Canada", "#BAA898")
@@ -449,7 +487,7 @@
 
          //Oceania zoom-in
          oceanianElements.on("click", function () {
-            inOceania = true;
+            inOceania = true; //Current location is Oceania
             if (onMainMenu) {
                onMainMenu = false;
                oceanianElements.css("stroke", "black")
@@ -463,7 +501,11 @@
                   .css("transition", "1s")
                   .css("overflow", "hidden")
                   .css("transform", "scale(3)")
-               $(".Unclear.Oceania").css("fill", "#9D9E9E ").css("cursor","")
+               //End of Zoom-in Functionality
+
+               $(".Unclear.Oceania").css("fill", "#9D9E9E ").css("cursor", "")
+
+               //Australia's hover and onclick code
                $("#Australia, #Tasmania").css("fill", "#EF8354")
                $("#Australia, #Tasmania").on("click", function () {
                   giveData("#Australia", "#EF8354")
@@ -479,7 +521,11 @@
             }
          });
 
-
+         //This code snippet animates the background grid. 
+         //The for loops dictate how many elements will be animated (change color)
+         //It is called 3 times at first for the 3 different colors of the water
+         //Then it is called 6 more times between a 2 seconds interval
+         // When the animation is half over (it is 4s long, so 2s) and when it over(4s later than its beggining), so there are always colored triangles on the map.
 
          for (var i = 0; i < 50; i++) { AnimateWater(40, 24, "water"); }
          for (var i = 0; i < 100; i++) { AnimateWater(40, 24, "BlueWater"); }
@@ -501,18 +547,21 @@
 
 
       function zoomOut() {
-
+         //Reference the IDs of the continents
          var europeanElements = $(".Europe");
          var americanElements = $(".America");
          var oceanianElements = $(".Oceania");
          var africanElements = $(".Africa");
          var sAmericanElements = $(".SouthAmerica");
+         var asiaElements = $(".Asia");
+         //Reference the map and the background grid
          var MCanvas = $("#SVGRoot");
          var BGcanvas = $("#triangle");
-         var asiaElements = $(".Asia");
-         onMainMenu = true;
-         asiaElements
-            .css("stroke", "black")
+
+         onMainMenu = true; // Zooming out resets the continent location
+
+         //Zoomin out is achieved by Reseting the viewBox,margin and padding attributes to their original size
+
          MCanvas
             .attr("viewBox", "0 0 2100 1100")
             .attr("padding-right", "")
@@ -533,10 +582,9 @@
             .attr("overflow", "hidden")
             .css("padding-top", "")
             .attr("viewBox", "0 0 3700 1860");
-         $(".Unclear.Asia")
-            .css("animation-name", "")
-            .css("animation-duration", "")
-            .css("animation-iteration-count", "");
+
+         //Reset The map's color: Decolor the countries in the previously selected continent
+
          asiaElements.css("fill", "#f3be5c");
          oceanianElements.css("fill", "#f3be5c");
          africanElements.css("fill", "#f3be5c");
@@ -549,12 +597,18 @@
          americanElements.css("stroke", "black");
          sAmericanElements.css("stroke", "black");
          europeanElements.css("stroke", "black");
+
+         //Reset the display of the data's values and the databoard itself
+
          $("#dataDiv").css("display", "none")
-         $("#pollution").html("Retrieving Data...");
-         $("#food").html("Retrieving Data...")
-         $("#population").html("Retrieving Data...")
-         $("#GDP").html("Retrieving Data...")
-         $("body").css("background-color", "#222334")
+         $("#pollution").html("...");
+         $("#food").html("...")
+         $("#population").html("...")
+         $("#GDP").html("...")
+         $("body").css("background-color", "#223334")
+
+         //Reset all of these variables; Zooming out means you arent located in any continent
+
          inAfrica = false;
          inAsia = false;
          inEurope = false;
@@ -590,27 +644,33 @@
 
    <script src="../js/index.js"></script>
    <!-- /\------------/\ Navigation Bar /\------------/\ -->
-   <!-- <a href="#dataDiv">dadada</a> -->
+
+   <!--The container of the map-->
    <div id="Map"></div>
+   <!--The container of the background-->
    <div id="BG" style="position: relative; overflow:hidden;"></div>
-   <!-- <button style="position: absolute; z-index: 3; float:right;" onclick="zoomOut()">Zoom out</button> -->
    <hr style="color:white">
+   <!--The container For all of the displayed data-->
    <div id="dataDiv" style="display:none">
       <center>
          <p id="CountryName"></p>
       </center>
+      <!--The container for the population data-->
       <div id="PopulationDiv">
          <p id="PopSub" class="sub">Population:</p>
          <p id="population" class="stats">...</p>
       </div>
+      <!--The container for the food production score data-->
       <div id="FoodDiv">
          <p id="FoodSub" class="sub">Seafood Production Score:</p>
          <p id="food" class="stats">...</p>
       </div>
+      <!--The container for the GDP data-->
       <div id="GDPDiv">
          <p id="GDPSub" class="sub">GDP:</p>
          <p id="GDP" class="stats">...</p>
       </div>
+      <!--The container for the pollution data-->
       <div id="PollutionDiv">
          <p id="PollSub" class="sub">Pollution:</p>
          <p id="pollution" class="stats">...</p>

@@ -1,5 +1,5 @@
 // the function takes two parameters. First: the DOM path of the desired element in the targeted website. Second: The selctor for the place where the data will be placed. Third: The targeted website's URL.
-function getInfo(searchElement, placeElement, url,message) {
+function getInfo(searchElement, placeElement, url, message) {
     var content; // this variable will store all of the targeted website's html code
     var cross = "http://www.whateverorigin.org/get?url="; // This variable stores the URL of the proxy server, used to bypass the CORS policy
     $.getJSON(cross + encodeURIComponent(url) + '&callback=?', function (data)// this is getJSON request. We search for the targeted website's adress trough the proxy server
@@ -7,16 +7,9 @@ function getInfo(searchElement, placeElement, url,message) {
         content = data.contents;// Fill the content variable with all of the targeted website's html code
         var parsedHtml = $.parseHTML(content); // Parse all of the targeted website's code in a variable called parsedHtml
         var dvPopulation = $(parsedHtml).find(searchElement).text();// Give the dvPopulation variable the value of the desired element.
-        $(placeElement).html(dvPopulation+" "+message);// Replace the element known as placeElement's html with the value of dvPopulation
+        $(placeElement).html(dvPopulation + " " + message);// Replace the element known as placeElement's html with the value of dvPopulation
     });
 }
-
-//Takes 3 arguments: CSSclass determines the class which will be removed. 'element' determies the element that will be affected. 'time' determies how many seconds should the script wait before it removes the class
-// function RemoveClass(CSSclass, element, time) {
-//     setTimeout(function () {
-//         $(element).toggleClass(CSSclass);
-//     }, time);
-// }
 
 // Takes 3 arguments. Width: how many triangles will be generated along the X axis. Height: how many triangles alod the Y axis. placeelement: where to place the generated backgroud
 function InitialiseMap(width, height, placeElement) {
@@ -49,23 +42,20 @@ function AnimateWater(width, height, className) {
     let Rh = Math.floor(Math.random() * height);        // Generate a random x integer
     let Rw = Math.floor(Math.random() * width * 2) + 1; // Generate a random y integer
     var string = "#x" + Rw + "y" + Rh;                  // Unite both random integers to form a grid element's id
-    var triangle = $(string);
-    
-    if (triangle.length == 0) {
-        console.log("DOES NOT EXIST: " + string);
-    }
+    var triangle = $(string);                           //make a jquery reference to the ID
 
-    if (triangle.hasClass("anim1") || triangle.length == 0) {
+    //If the current random element doesn't exist, or is in use (its animation is already running) run the animation function again to generate a new, existing one
+    if (triangle.hasClass("isRunning") || triangle.length == 0) {
         AnimateWater(width, height, className)
     } else {
         triangle
-            .addClass(className)
-            .addClass("anim1")
+            .addClass(className)    //add the name of the css class, which contains the actual animation
+            .addClass("isRunning")  //add the isRunning class, which indicates that this element is in use and has to wa
             .one("animationend", function () {
-                $(this)
-                    .removeClass("anim1")
-                    .removeClass(className);
-                    AnimateWater(width, height, className)
+                $(this) //'this' points to the current triangle element
+                    .removeClass("isRunning")  //When the animation ends remove the isRunning class, which indicates that the element is free to use by another animation
+                    .removeClass(className);    //remove the class, which hold the animation, because the animation is over
+                AnimateWater(width, height, className)  //Start another animation when the old one ends
             });
     }
 }

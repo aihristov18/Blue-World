@@ -1,10 +1,10 @@
 var dataArray = [ // this array contains the URLs of all the websites we get our data from
     {
-        country: "#Japan",
-        name: "Japan",
-        populationUrl: "https://www.worldometers.info/world-population/japan-population/",
-        GDPUrl: "https://www.worldometers.info/gdp/japan-gdp/",
-        FPUrl: "http://www.oceanhealthindex.org/region-scores/scores/japan",
+        country: "#Japan",                                                                 // 'country' hold the ID, by which this object is selected and used
+        name: "Japan",                                                                     // This is the name of the country, that will be displayed on the databoard
+        populationUrl: "https://www.worldometers.info/world-population/japan-population/", //'populationUrl' holds the url of the site where we get our population number; It is updated daily;
+        GDPUrl: "https://www.worldometers.info/gdp/japan-gdp/",                            //'GDPUrl' holds the url of the site where we get our GDP number. For now it doesn't update
+        FPUrl: "http://www.oceanhealthindex.org/region-scores/scores/japan",               //'FPUrl' holds the url of the site where we get our pollution and food production score index. We are unsure of when they update
     },
     {
         country: "#Russia",
@@ -84,6 +84,9 @@ var dataArray = [ // this array contains the URLs of all the websites we get our
         FPUrl: "http://www.oceanhealthindex.org/region-scores/scores/australia",
     },
 ];
+
+//This array WILL hold different cards, which will be randomly selected by a RNG. 
+//This will make a small "minigame", in which you rule a country for a time period and try to better its' pollution and food production score, while balancing GDP
 var Cards = [
     {
         id:0,
@@ -134,7 +137,8 @@ var Cards = [
         influencePlus:"",
     },
 ]
-var foodDataPoint = ".CW span:first-child";
-var pollutionDataPoint = ".FP span:first-child";
-var populationDataPoint = "div.country-pop-description li:first-child strong:last-child";
-var GDPSataPoint = ".col-md-7 li:first-child strong";
+
+var foodDataPoint = ".CW span:first-child";                                                 //This dataPoints holds the DOM path of the element, from which we get our food production score
+var pollutionDataPoint = ".FP span:first-child";                                            //This dataPoints holds the DOM path of the element, from which we get our pollution score
+var populationDataPoint = "div.country-pop-description li:first-child strong:last-child";   //This dataPoints holds the DOM path of the element, from which we get our population number
+var GDPSataPoint = ".col-md-7 li:first-child strong";                                       //This dataPoints holds the DOM path of the element, from which we get our GDP number
