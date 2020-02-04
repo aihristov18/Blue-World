@@ -187,7 +187,7 @@
                $("#China").css("fill", "#84322E");
                $("#China").on("click", function () {
                   giveData("#China", "#84322E");
-                  $(".stats").css("color","white")
+                  $(".stats").css("color", "white")
                });
                $("#India").css("fill", "#E8D2AE");
                $("#middleEast").css("fill", "#D7B29D");
@@ -397,32 +397,57 @@
 </head>
 
 <body>
-   <a href="#dataDiv">dadada</a>
+   <!-- \/------------\/ Navigation Bar \/------------\/ -->
+   <div class='menu'>
+
+      <span class='toggle'>
+         <i></i>
+         <i></i>
+         <i></i>
+      </span>
+
+      <div class='menuContent'>
+         <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li class="here">Map</li>
+            <li><a href="otherapps.html">Other Apps</a></li>
+            <li><a href="url">Our Team</a></li>
+         </ul>
+      </div>
+
+   </div>
+
+   <script src="../js/index.js"></script>
+   <!-- /\------------/\ Navigation Bar /\------------/\ -->
+   <!-- <a href="#dataDiv">dadada</a> -->
    <div id="Map"></div>
    <div id="BG" style="position: relative; overflow:hidden;"></div>
-   <button style="position: absolute; z-index: 3; float:right;" onclick="zoomOut()">Zoom out</button>
+   <!-- <button style="position: absolute; z-index: 3; float:right;" onclick="zoomOut()">Zoom out</button> -->
    <hr style="color:white">
    <div id="dataDiv" style="display:none">
       <center>
-         <p id="countryName"></p>
+         <p id="CountryName">Russian Federation</p>
       </center>
       <div id="PopulationDiv">
-         <p id="popSub" class="sub">Population:</p>
-         <p id="population" class="stats">Retrieving Data...</p>
+         <p id="PopSub" class="sub">Population:</p>
+         <p id="population" class="stats">...</p>
       </div>
-      <div id="foodDiv">
-         <p class="sub" id="subFood">Seafood Production Score:</p>
-         <p id="food" class="stats">Retrieving Data...</p>
+      <div id="FoodDiv">
+         <p id="FoodSub" class="sub">Seafood Production Score:</p>
+         <p id="food" class="stats">...</p>
       </div>
       <div id="GDPDiv">
-         <p class="sub">GDP:</p>
-         <p id="GDP" class="stats">Retrieving Data...</p>
+         <p id="GDPSub" class="sub">GDP:</p>
+         <p id="GDP" class="stats">...</p>
       </div>
-      <div id="pollutionDiv">
-         <p class="sub">Pollution:</p>
-         <p id="pollution" class="stats">Retrieving Data...</p>
+      <div id="PollutionDiv">
+         <p id="PollSub" class="sub">Pollution:</p>
+         <p id="pollution" class="stats">...</p>
       </div>
-      <a href="#Map" class="sub" id="backToMap">Back To Map</a>
+      <center>
+      <a href="#Map" id="backToMap" class="sub">Back To Map</a>
+      </center>
    </div>
 </body>
 
