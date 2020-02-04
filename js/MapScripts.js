@@ -7,17 +7,16 @@ function getInfo(searchElement, placeElement, url,message) {
         content = data.contents;// Fill the content variable with all of the targeted website's html code
         var parsedHtml = $.parseHTML(content); // Parse all of the targeted website's code in a variable called parsedHtml
         var dvPopulation = $(parsedHtml).find(searchElement).text();// Give the dvPopulation variable the value of the desired element.
-        console.log(dvPopulation);
         $(placeElement).html(dvPopulation+" "+message);// Replace the element known as placeElement's html with the value of dvPopulation
     });
 }
 
 //Takes 3 arguments: CSSclass determines the class which will be removed. 'element' determies the element that will be affected. 'time' determies how many seconds should the script wait before it removes the class
-function RemoveClass(CSSclass, element, time) {
-    setTimeout(function () {
-        $(element).toggleClass(CSSclass);
-    }, time);
-}
+// function RemoveClass(CSSclass, element, time) {
+//     setTimeout(function () {
+//         $(element).toggleClass(CSSclass);
+//     }, time);
+// }
 
 // Takes 3 arguments. Width: how many triangles will be generated along the X axis. Height: how many triangles alod the Y axis. placeelement: where to place the generated backgroud
 function InitialiseMap(width, height, placeElement) {

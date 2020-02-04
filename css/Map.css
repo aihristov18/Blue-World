@@ -327,5 +327,11 @@ body{
     padding-right: 1vw;
     padding-left: 1vw;
   }
+
+  /* #Russia:hover,#China:hover,#India:hover,#middleEast:hover,#Japan:hover
+  {
+      stroke:white !important;
+      cursor:pointer;
+  } */
   
   /* /\-------------/\------------/\ Navigation Bar /\-------------/\------------/\ */

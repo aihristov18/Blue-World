@@ -14,10 +14,10 @@
    <script src="../js/data.js"></script>
    <script>
       function giveData(element, color) {
-         $("#pollution").html("Retrieving Data...");
-         $("#food").html("Retrieving Data...")
-         $("#population").html("Retrieving Data...")
-         $("#GDP").html("Retrieving Data...")
+         $("#pollution").html("...");
+         $("#food").html("...")
+         $("#population").html("...")
+         $("#GDP").html("...")
          for (var i = 0; i < dataArray.length; i++) {
             if (dataArray[i].country == element) {
                getInfo(populationDataPoint, "#population", dataArray[i].populationUrl, "People");
@@ -25,16 +25,28 @@
                getInfo(foodDataPoint, "#food", dataArray[i].FPUrl, "/ 100")
                getInfo(pollutionDataPoint, "#pollution", dataArray[i].FPUrl, "/ 100")
                $("body").css("background-color", color).css("transition", "1s")
-               $("#countryName").html(dataArray[i].name);
+               $("#CountryName").html(dataArray[i].name);
                $("#popSub").html("Population:");
                $("#dataDiv").css("display", "block")
             }
          }
       }
       var onMainMenu = true;
+      var inAsia = false;
+      var inAmerica = false;
+      var inAfrica = false;
+      var inOceania = false;
+      var inSAmerica = false;
+      var inEurope = false;
       window.onload = function () {
          document.getElementById("Map").innerHTML = Map; // Initialise the Map
          InitialiseMap(40, 24, "BG"); // Initialise The Background Triangle Grid
+
+         //Zoom-out on right click, also hide the context menu
+         $('#Map').bind("contextmenu", function (e) {
+            zoomOut();
+            return false;
+         });
 
          //Initialise Refrences to the continents
          var MCanvas = $("#SVGRoot");
@@ -45,6 +57,7 @@
          var oceanianElements = $(".Oceania");
          var africanElements = $(".Africa");
          var sAmericanElements = $(".SouthAmerica");
+
 
          //Add a stroke of 4px to every continent
          asiaElements.css("stroke-width", "4px");
@@ -152,19 +165,15 @@
 
          //ASIA ZOOM IN
          asiaElements.on("click", function () {
-            if (onMainMenu) {
-               $("#countryName").html("");
-               $("#popSub").html("");
-               $("#population").html("");
-               // $().on("click",function(){console.log("test");});
+            inAsia = true;
+            if (onMainMenu && inAsia) {
                onMainMenu = false;
                asiaElements
-                  .css("stroke", "white")
+                  .css("stroke", "black")
                   .css("cursor", "")
                   .css("stroke-width", "4px")
                MCanvas
                   .attr("viewBox", "0 0 2100 1000")
-                  //.css("overflow", "visible")
                   .attr("padding-right", "40%")
                   .attr("height", "5%")
                   .css("margin-left", "0%")
@@ -178,38 +187,82 @@
                   .attr("overflow", "hidden")
                   .css("padding-top", "5.5%")
                   .attr("viewBox", "0 0 3700 1652")
+               //END OF ZOOM IN FUNCTIONALITY
+
                //Coloring of The Asian Elements
                $(".Unclear.Asia").css("fill", "#796465")
+
+               //Russia's hover and onclick code
+               $("#Russia").css("fill", "#BDC4A7");
                $("#Russia").on("click", function () {
                   giveData("#Russia", "#BDC4A7");
                });
-               $(".Asia").hover()
+               $("#Russia").hover(function () {
+                  if (inAsia == true && onMainMenu == false && inAfrica == false && inAmerica == false && inSAmerica == false && inEurope == false) {
+                     $("#Russia").css("stroke", "white");
+                     $("#Russia").css("cursor", "pointer");
+                  }
+               }, function () {
+                  $("#Russia").css("stroke", "black")
+                  $("#Russia").css("cursor", "");
+               });
+
+
+               //China's hover and onclick code
                $("#China").css("fill", "#84322E");
                $("#China").on("click", function () {
                   giveData("#China", "#84322E");
                   $(".stats").css("color", "white")
                });
+               $("#China").hover(function () {
+                  if (inAsia == true && onMainMenu == false && inAfrica == false && inAmerica == false && inSAmerica == false && inEurope == false) {
+                     $("#China").css("stroke", "white");
+                     $("#China").css("cursor", "pointer");
+                  }
+               }, function () {
+                  $("#China").css("stroke", "black")
+               });
+
+               //India's hover and onclick code
                $("#India").css("fill", "#E8D2AE");
+               $("#India").on("click", function () {
+                  giveData("#India", "#E8D2AE");
+                  $(".stats").css("color", "rgb(88, 92, 78)")
+               });
+               $("#India").hover(function () {
+                  if (inAsia == true && onMainMenu == false && inAfrica == false && inAmerica == false && inSAmerica == false && inEurope == false) {
+                     $("#India").css("stroke", "white");
+                     $("#India").css("cursor", "pointer");
+                  }
+               }, function () {
+                  $("#India").css("stroke", "black")
+               });
+
                $("#middleEast").css("fill", "#D7B29D");
                $("#Japan").css("fill", "#CB8589");
-               $("#Russia").css("fill", "#BDC4A7");
+               $("#Japan").on("click", function () {
+                  giveData("#Japan", "#CB8589")
+               });
+               $("#Japan").hover(function () {
+                  if (inAsia == true && onMainMenu == false && inAfrica == false && inAmerica == false && inSAmerica == false && inEurope == false) {
+                     $("#Japan").css("stroke", "white");
+                     $("#Japan").css("cursor", "pointer");
+                  }
+               }, function () {
+                  $("#Japan").css("stroke", "black")
+               });
             }
          });
 
-         $("#Russia").hover(function () {
-            if (onMainMenu == false)
-               $("#Russia").css("fill", "#BDC4A7")
-         }, function () {
-            if (onMainMenu == false)
-               $("#Russia").css("fill", "#BDC4A7")
-         });
+
 
          //EUROPE ZOOM IN
          europeanElements.on("click", function () {
+            inEurope = true;
             if (onMainMenu) {
                onMainMenu = false;
                europeanElements
-                  .css("stroke", "white")
+                  .css("stroke", "black")
                   .css("stroke-width", "3px")
                MCanvas
                   .css("transform", "scale(4)")
@@ -224,19 +277,76 @@
                   .attr("overflow", "hidden")
                   .css("padding-top", "12%")
                   .attr("viewBox", "0 0 3700 1400")
-               $(".Unclear.Europe, #Spain, #Benelux, #UkIrl").css("fill", "#9CAFB7 ");
+               //END OF ZOOM IN FUNCTIONALITY
+               $(".Unclear.Europe, #Spain, #Benelux, #UkIrl").css("fill", "#9CAFB7 ").css("cursor","");
+               //Germany's onclick and hover code
                $("#Germany").css("fill", "#949D6A");
+               $("#Germany").on("click", function () {
+                  giveData("#Germany", "#949D6A");
+                  $(".stats").css("color", "rgb(88, 92, 78)")
+               });
+               $("#Germany").hover(function () {
+                  if (inAsia == false && onMainMenu == false && inAfrica == false && inAmerica == false && inSAmerica == false && inEurope == true) {
+                     $("#Germany").css("stroke", "white");
+                     $("#Germany").css("cursor", "pointer");
+                  }
+               }, function () {
+                  $("#Germany").css("stroke", "black")
+               });
+
+               //France's onclick and hover code
                $("#France").css("fill", "#ADB993");
+               $("#France").on("click", function () {
+                  giveData("#France", "#ADB993");
+                  $(".stats").css("color", "rgb(88, 92, 78)")
+               });
+               $("#France").hover(function () {
+                  if (inAsia == false && onMainMenu == false && inAfrica == false && inAmerica == false && inSAmerica == false && inEurope == true) {
+                     $("#France").css("stroke", "white");
+                     $("#France").css("cursor", "pointer");
+                  }
+               }, function () {
+                  $("#France").css("stroke", "black")
+               });
+               //Bulgaria's hover and onclick code
                $("#Bulgaria").css("fill", "#D0D38F");
+               $("#Bulgaria").on("click", function () {
+                  giveData("#Bulgaria", "#D0D38F");
+                  $(".stats").css("color", "rgb(88, 92, 78)")
+               });
+               $("#Bulgaria").hover(function () {
+                  if (inAsia == false && onMainMenu == false && inAfrica == false && inAmerica == false && inSAmerica == false && inEurope == true) {
+                     $("#Bulgaria").css("stroke", "white");
+                     $("#Bulgaria").css("cursor", "pointer");
+                  }
+               }, function () {
+                  $("#Bulgaria").css("stroke", "black")
+               });
+
+               //United kingdom's hover and onclick code
                $("#UK, #NIrl").css("fill", "#BFEDC1 ");
+               $("#UK, #NIrl").on("click", function () {
+                  giveData("#UK", "#BFEDC1");
+                  $(".stats").css("color", "rgb(88, 92, 78)")
+               });
+               $("#UK, #NIrl").hover(function () {
+                  if (inAsia == false && onMainMenu == false && inAfrica == false && inAmerica == false && inSAmerica == false && inEurope == true) {
+                     $("#UK, #NIrl").css("stroke", "white");
+                     $("#UK, #NIrl").css("cursor", "pointer");
+                  }
+               }, function () {
+                  $("#UK, #NIrl").css("stroke", "black")
+               });
             }
          });
 
          //Africa Zoom in
+
          africanElements.on("click", function () {
+            inAfrica = true;
             if (onMainMenu) {
                onMainMenu = false;
-               africanElements.css("stroke", "white")
+               africanElements.css("stroke", "black")
                MCanvas
                   .css("transform", "scale(2)")
                   .css("padding-bottom", "27%")
@@ -248,14 +358,17 @@
                   .css("transform", "scale(2)")
                   .css("transition", "1s")
                   .attr("viewBox", "0 0 3700 1850")
+               $("#Africa, #Unclear19").css("fill", "#A58663 ")
             }
          });
 
          //S.America zoom-in
+
          sAmericanElements.on("click", function () {
+            inSAmerica = true;
             if (onMainMenu) {
                onMainMenu = false;
-               sAmericanElements.css("stroke", "white")
+               sAmericanElements.css("stroke", "black")
                MCanvas
                   .css("transition", "1s")
                   .css("transform", "scale(2)")
@@ -268,14 +381,16 @@
                   .css("overflow", "hidden")
                   .css("transform", "scale(2)")
                   .attr("viewBox", "0 100 3700 1860")
+               $("#SouthAmerica").css("fill", "#C0D684 ")
             }
          });
 
          //America zoom-in
          americanElements.on("click", function () {
+            inAmerica = true;
             if (onMainMenu) {
                onMainMenu = false;
-               sAmericanElements.css("stroke", "white")
+               americanElements.css("stroke", "black")
                MCanvas
                   .css("overflow", "hidden")
                   .css("transition", "1s")
@@ -288,29 +403,79 @@
                   .css("transition", "1s")
                   .css("overflow", "hidden")
                   .css("transform", "scale(2)")
-               $(".Unclear.America, #Greenland").css("fill", "#5A7684")
-               $("#USA, #Alaska, #Unclear32").css("fill", "#8FBDD3")
-               $("#Mexico").css("fill", "#7EB9C4")
-               $("#Canada, #Unclear25, #Unclear26, #Unclear27, #Unclear29").css("fill", "#80CED7")
+               //End of zoom-in feature
+               $(".Unclear.America, #Greenland").css("fill", "#848586").css("cursor","")
+               //USA's hover and onclick code
+               $("#USA, #Alaska, #Unclear32").css("fill", "#C6A59F ")
+               $("#USA, #Alaska, #Unclear32").on("click", function () {
+                  giveData("#USA", "#C6A59F");
+                  $(".stats").css("color", "rgb(88, 92, 78)")
+               });
+               $("#USA, #Alaska, #Unclear32").hover(function () {
+                  if (inAsia == false && onMainMenu == false && inAfrica == false && inAmerica == true && inSAmerica == false && inEurope == false) {
+                     $("#USA, #Alaska, #Unclear32").css("stroke", "white");
+                     $("#USA, #Alaska, #Unclear32").css("cursor", "pointer");
+                  }
+               }, function () {
+                  $("#USA, #Alaska, #Unclear32").css("stroke", "black")
+               });
+               //Mexico's onclick and hover code
+               $("#Mexico").css("fill", "#E0AB96  ")
+               $("#Mexico").on("click", function () {
+                  giveData("#Mexico", "#CB8589")
+               });
+               $("#Mexico").hover(function () {
+                  if (inAsia == false && onMainMenu == false && inAfrica == false && inAmerica == true && inSAmerica == false && inEurope == false) {
+                     $("#Mexico").css("stroke", "white");
+                     $("#Mexico").css("cursor", "pointer");
+                  }
+               }, function () {
+                  $("#Mexico").css("stroke", "black")
+               });
+               $("#Canada, #Unclear25, #Unclear26, #Unclear27, #Unclear29").css("fill", "#BAA898")
+               $("#Canada, #Unclear25, #Unclear26, #Unclear27, #Unclear29").on("click", function () {
+                  giveData("#Canada", "#BAA898")
+               });
+               $("#Canada, #Unclear25, #Unclear26, #Unclear27, #Unclear29").hover(function () {
+                  if (inAsia == false && onMainMenu == false && inAfrica == false && inAmerica == true && inSAmerica == false && inEurope == false) {
+                     $("#Canada, #Unclear25, #Unclear26, #Unclear27, #Unclear29").css("stroke", "white");
+                     $("#Canada, #Unclear25, #Unclear26, #Unclear27, #Unclear29").css("cursor", "pointer");
+                  }
+               }, function () {
+                  $("#Canada, #Unclear25, #Unclear26, #Unclear27, #Unclear29").css("stroke", "black")
+               });
             }
          });
 
          //Oceania zoom-in
          oceanianElements.on("click", function () {
+            inOceania = true;
             if (onMainMenu) {
                onMainMenu = false;
-               oceanianElements.css("stroke", "white")
+               oceanianElements.css("stroke", "black")
                MCanvas
                   .css("transition", "1s")
                   .css("overflow", "hidden")
                   .css("transform", "scale(3)")
                   .css("padding-right", "100%")
                   .css("padding-bottom", "38%")
-               //.attr("viewBox","700 260 2100 1100")
                BGcanvas
                   .css("transition", "1s")
                   .css("overflow", "hidden")
                   .css("transform", "scale(3)")
+               $(".Unclear.Oceania").css("fill", "#9D9E9E ").css("cursor","")
+               $("#Australia, #Tasmania").css("fill", "#EF8354")
+               $("#Australia, #Tasmania").on("click", function () {
+                  giveData("#Australia", "#EF8354")
+               });
+               $("#Australia, #Tasmania").hover(function () {
+                  if (inAsia == false && onMainMenu == false && inAfrica == false && inAmerica == true && inSAmerica == false && inEurope == false) {
+                     $("#Australia, #Tasmania").css("stroke", "white");
+                     $("#Australia, #Tasmania").css("cursor", "pointer");
+                  }
+               }, function () {
+                  $("#Australia, #Tasmania").css("stroke", "black")
+               });
             }
          });
 
@@ -350,7 +515,6 @@
             .css("stroke", "black")
          MCanvas
             .attr("viewBox", "0 0 2100 1100")
-            //.css("overflow", "visible")
             .attr("padding-right", "")
             .attr("height", "")
             .css("margin-left", "")
@@ -391,6 +555,12 @@
          $("#population").html("Retrieving Data...")
          $("#GDP").html("Retrieving Data...")
          $("body").css("background-color", "#222334")
+         inAfrica = false;
+         inAsia = false;
+         inEurope = false;
+         inSAmerica = false;
+         inAmerica = false;
+         inOceania = false;
       }
 
    </script>
@@ -427,7 +597,7 @@
    <hr style="color:white">
    <div id="dataDiv" style="display:none">
       <center>
-         <p id="CountryName">Russian Federation</p>
+         <p id="CountryName"></p>
       </center>
       <div id="PopulationDiv">
          <p id="PopSub" class="sub">Population:</p>
@@ -446,7 +616,7 @@
          <p id="pollution" class="stats">...</p>
       </div>
       <center>
-      <a href="#Map" id="backToMap" class="sub">Back To Map</a>
+         <a href="#Map" id="backToMap" class="sub">Back To Map</a>
       </center>
    </div>
 </body>

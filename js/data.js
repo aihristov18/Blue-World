@@ -62,8 +62,78 @@ var dataArray = [ // this array contains the URLs of all the websites we get our
         GDPUrl: "https://www.worldometers.info/gdp/uk-gdp/",
         FPUrl: "http://www.oceanhealthindex.org/region-scores/scores/united-kingdom",
     },
+    {
+        country: "#Bulgaria",
+        name: "Bulgaria",
+        populationUrl: "https://www.worldometers.info/world-population/bulgaria-population/",
+        GDPUrl: "https://www.worldometers.info/gdp/bulgaria-gdp/",
+        FPUrl: "http://www.oceanhealthindex.org/region-scores/scores/bulgaria",
+    },
+    {
+        country: "#Mexico",
+        name: "Mexico",
+        populationUrl: "https://www.worldometers.info/world-population/mexico-population/",
+        GDPUrl: "https://www.worldometers.info/gdp/mexico-gdp/",
+        FPUrl: "http://www.oceanhealthindex.org/region-scores/scores/mexico",
+    },
+    {
+        country: "#Australia",
+        name: "Australia",
+        populationUrl: "https://www.worldometers.info/world-population/australia-population/",
+        GDPUrl: "https://www.worldometers.info/gdp/australia-gdp/",
+        FPUrl: "http://www.oceanhealthindex.org/region-scores/scores/australia",
+    },
 ];
-
+var Cards = [
+    {
+        id:0,
+        title:"Beach Cleanup Event",
+        img:"",
+        text:"",
+        influneceMinus:"",
+        influencePlus:"",
+    },
+    {
+        id:1,
+        title:"Beach Cleanup Event",
+        img:"",
+        text:"",
+        influneceMinus:"",
+        influencePlus:"",
+    },
+    {
+        id:2,
+        title:"Beach Cleanup Event",
+        img:"",
+        text:"",
+        influneceMinus:"",
+        influencePlus:"",
+    },
+    {
+        id:3,
+        title:"Beach Cleanup Event",
+        img:"",
+        text:"",
+        influneceMinus:"",
+        influencePlus:"",
+    },
+    {
+        id:4,
+        title:"Beach Cleanup Event",
+        img:"",
+        text:"",
+        influneceMinus:"",
+        influencePlus:"",
+    },
+    {
+        id:5,
+        title:"Beach Cleanup Event",
+        img:"",
+        text:"",
+        influneceMinus:"",
+        influencePlus:"",
+    },
+]
 var foodDataPoint = ".CW span:first-child";
 var pollutionDataPoint = ".FP span:first-child";
 var populationDataPoint = "div.country-pop-description li:first-child strong:last-child";
