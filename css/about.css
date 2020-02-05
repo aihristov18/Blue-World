@@ -201,12 +201,13 @@ a:link{                           /*a normal, unvisited link*/
   color: #FFFFFF;
   margin-right: -40vw;
   padding: 0.5vw;
+  margin-bottom: 20vw;
 }
 .content2 {
   font-size: 1vw;
   position: absolute;
   font-weight: default;
-  top: 55%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #00000060;

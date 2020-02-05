@@ -187,7 +187,7 @@ a:active{                        /*a link the moment it is clicked*/
   margin-right: -40vw;
   text-align: center;
   animation-name: opacity;
-  animation-duration: 1s;
+  animation-duration: 2s;
 }
 /* /\-------------/\------------/\     Index Content     /\-------------/\------------/\ */
 

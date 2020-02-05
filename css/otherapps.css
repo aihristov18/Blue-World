@@ -189,11 +189,11 @@ a:link{                           /*a normal, unvisited link*/
   margin-top: 10px;
 }
 
-.content {
+.content1 {
   font-size: 2vw;
   font-weight: bold;
   position: absolute;
-  top: 25%;
+  top: 18%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #00000060;
@@ -206,13 +206,31 @@ a:link{                           /*a normal, unvisited link*/
   font-size: 1vw;
   position: absolute;
   font-weight: default;
-  top: 55%;
+  top: 53%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #00000060;
   border-radius: 1.5vw;
   color: #FFFFFF;
   padding: 1vw;
-  padding-left: 5vw;
-  padding-right: 5vw;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  padding-bottom: 2vw;
+  margin-top: 10vw;
+}
+
+.GreenWorld{
+    width: 40vw;
+    height: 25vw;
+    border-radius: 2vw;
+    border: 5px #FFFFFF00 solid;
+}
+.GreenWorld:hover{
+    border: 5px #FFFFFF solid;
+}
+
+.title{
+    margin: 0;
+    font-size: 3.5vw;
+    text-align: center;
 }
