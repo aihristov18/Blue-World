@@ -298,7 +298,6 @@ body{
     margin-left: 50px;
     margin-right: 50px;
     transition: opacity 0.5s ease 0.3s;
-    cursor: pointer;
     position: relative;
   }
   a:link{                           /*a normal, unvisited link*/
@@ -326,7 +325,11 @@ body{
     border-radius: 10px;
     padding-right: 1vw;
     padding-left: 1vw;
+    cursor: default;
   }
+
+
+  /* /\-------------/\------------/\ Navigation Bar /\-------------/\------------/\ */
 
   /* #Russia:hover,#China:hover,#India:hover,#middleEast:hover,#Japan:hover
   {
@@ -334,4 +337,24 @@ body{
       cursor:pointer;
   } */
   
-  /* /\-------------/\------------/\ Navigation Bar /\-------------/\------------/\ */
+/* \/-------------\/------------\/   Scroll Bar   \/-------------\/------------\/ */
+
+
+::-webkit-scrollbar {                   /* width */
+  width: 0.45vw;
+}
+
+::-webkit-scrollbar-track {             /* track */
+  background: #a1a1a1; 
+}
+ 
+::-webkit-scrollbar-thumb {             /* handle */
+  background: #41ffc9;
+}
+
+::-webkit-scrollbar-thumb:hover {       /* handle when hover */
+  background: #23807e;
+}
+
+
+/* /\-------------/\------------/\   Scroll Bar   /\-------------/\------------/\ */
