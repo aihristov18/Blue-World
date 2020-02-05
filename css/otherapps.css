@@ -216,18 +216,3 @@ a:link{                           /*a normal, unvisited link*/
   padding-left: 5vw;
   padding-right: 5vw;
 }
-
-.info{
-  margin-top: 5vw;
-}
-
-.OurMap{
-  font-size: 2vw;
-  padding: 0.5vw;
-  padding-left: 1vw;
-  padding-right: 1vw;
-  border: 1.5px #FFFFFF solid;
-  border-radius: 80px;
-  margin-top: 5vw;
-  margin-bottom: 1.5vw;
-}
