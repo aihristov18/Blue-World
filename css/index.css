@@ -4,9 +4,7 @@ body {
     overflow: hidden;
     letter-spacing: 1px;
     height: 100vh;
-    background-color: #23807e;
-    
-    
+    background-color: #23807e; 
 }
 
 .background{
@@ -185,14 +183,13 @@ a:active{                        /*a link the moment it is clicked*/
   left: 50%;
   transform: translate(-50%, -50%);
   color: #FFFFFF;
-  border-radius: 1.5vw;
   margin-top: 0.5vw;
   margin-right: -40vw;
-  /* text-align: center; */
+  text-align: center;
+  animation-name: opacity;
+  animation-duration: 1s;
 }
 /* /\-------------/\------------/\     Index Content     /\-------------/\------------/\ */
-
-
 
 img {
   position: absolute;
@@ -201,4 +198,10 @@ img {
   z-index: -1;
 }
 
-
+@keyframes opacity{
+  0% {opacity: 0}
+  25% {opacity: 0.25}
+  50% {opacity: 0.50}
+  75% {opacity: 0.75}
+  100% {opacity: 1}
+}
