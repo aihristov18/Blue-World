@@ -126,30 +126,30 @@ body {
 a:link{                           /*a normal, unvisited link*/
     text-decoration: none;
     color: #ffffff;
-  }  
+}  
    
   a:visited{                        /*a link the user has visited*/
     text-decoration: none;
     color: #ffffff;
-  }
+}
    
-  a:hover{                         /*a link when the user mouses over it*/
+a:hover{                         /*a link when the user mouses over it*/
     color: #6bd1e0;
     transition: 0.5s;
-  }  
+}  
   
-  a:active{                        /*a link the moment it is clicked*/
+a:active{                        /*a link the moment it is clicked*/
     text-decoration: none;
     color: #ffffff;
-  } 
-  .here{                          /*this class indicates that you are on this page*/
+} 
+.here{                          /*this class indicates that you are on this page*/
     color: #6bd1e0;
     border-bottom: 1.5px #6bd1e0 solid;
     border-radius: 10px;
     padding-right: 1vw;
     padding-left: 1vw;
     cursor: default;
-  }
+}
 
 /* /\-------------/\------------/\ Navigation Bar /\-------------/\------------/\ */
 
@@ -176,7 +176,7 @@ a:link{                           /*a normal, unvisited link*/
 
 /* /\-------------/\------------/\   Scroll Bar   /\-------------/\------------/\ */
 
-#footer {
+#footer {                               /* this is the footer at the bottom of the page */
   color: #FFFFFF;
   border-top: 3px #FFFFFF solid;
   text-align: center;
@@ -189,7 +189,7 @@ a:link{                           /*a normal, unvisited link*/
   margin-top: 10px;
 }
 
-.content1 {
+.content1 {                         /* this is the topic of the page */
   font-size: 2vw;
   font-weight: bold;
   position: absolute;
@@ -202,7 +202,7 @@ a:link{                           /*a normal, unvisited link*/
   margin-right: -40vw;
   padding: 0.5vw;
 }
-.content2 {
+.content2 {                     /* this is the text and the picture */
   font-size: 1vw;
   position: absolute;
   font-weight: default;
@@ -219,17 +219,17 @@ a:link{                           /*a normal, unvisited link*/
   margin-top: 10vw;
 }
 
-.GreenWorld{
+.GreenWorld{                    /* this is the image */
     width: 40vw;
     height: 25vw;
     border-radius: 2vw;
     border: 5px #FFFFFF00 solid;
 }
-.GreenWorld:hover{
+.GreenWorld:hover{              /* this is the image when hovered */
     border: 5px #FFFFFF solid;
 }
 
-.title{
+.title{                         /* this is the name of our last project */
     margin: 0;
     font-size: 3.5vw;
     text-align: center;

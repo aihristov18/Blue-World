@@ -1,334 +1,341 @@
 html{
-    scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-    background-color: #223334;
+  background-color: #223334;
 }
 #triangle{
-    width:100%;
-    background-color: white;
- }
- #SVGRoot{
-     width:100%;
-     margin-left:5%;
-     margin-bottom:-3%;
- }
- #Map{
-    width:100%;
-    position: absolute;
-    z-index: 2;
-    overflow:hidden;
- }
- #BG{
-    display:relative;
-    z-index: 1;
- }
-  *{
-      margin:0;
-  }
-/*!!!!!!!!WATER ANIMATIONS!!!!!!!!*/
-  @keyframes wot{
-      0% {fill:#0184a9;}
-      50%{fill:#01bfc4;}
-      100% {fill:#0184a9;}
-  }
-  @keyframes wat{
-      0% {fill:#0184a9;}
-      50%{fill:#a9e8db;}
-      100% {fill:#0184a9;}
-  }
-  @keyframes wet{
-      0% {fill:#0184a9;}
-      50%{fill:#e0f7e6;}
-      100% {fill:#0184a9;}
-  }
-  *{
-      margin:0;
-  }
+  width:100%;
+  background-color: white;
+}
 
-  .RegularPoly{
-      fill:#0184a9;
-  }
-  .water {
-      animation-name: wat;
-      animation-duration: 6s;
-  }
-  .WhiteWater{
-      animation-name: wet;
-      animation-duration:6s;
-  }
-  .BlueWater{
-      animation-name:wot;
-      animation-duration:6s;
-  }
+#SVGRoot{
+  width:100%;
+  margin-left:5%;
+  margin-bottom:-3%;
+ }
+
+#Map{
+  width:100%;
+  position: absolute;
+  z-index: 2;
+  overflow:hidden;
+}
+#BG{
+  display:relative;
+  z-index: 1;
+}
+
+*{
+  margin:0;
+}
+
+/*!!!!!!!!WATER ANIMATIONS!!!!!!!!*/
+@keyframes wot{
+  0% {fill:#0184a9;}
+  50%{fill:#01bfc4;}
+  100% {fill:#0184a9;}
+}
+@keyframes wat{
+  0% {fill:#0184a9;}
+  50%{fill:#a9e8db;}
+  100% {fill:#0184a9;}
+}
+
+@keyframes wet{
+  0% {fill:#0184a9;}
+  50%{fill:#e0f7e6;}
+  100% {fill:#0184a9;}
+}
+
+*{
+  margin:0;
+}
+
+.RegularPoly{
+  fill:#0184a9;
+}
+
+.water {
+  animation-name: wat;
+  animation-duration: 6s;
+}
+
+.WhiteWater{
+  animation-name: wet;
+  animation-duration:6s;
+}
+
+.BlueWater{
+  animation-name:wot;
+  animation-duration:6s;
+}
+
 /*!!!!!!!!WATER ANIMATIONS!!!!!!!!*/
 
 /*!!!!!!!COUNTRY ANIMATIONS!!!!!!!*/
+
 @keyframes appear{
-    from{opacity:0}
-    to{opacity:1}
+  from{opacity:0}
+  to{opacity:1}
 }
-/* @keyframes neutral{
-    0% {fill:#92B4A7;}
-    50%{fill:#93827F;}
-    100% {fill:#92B4A7;}
-} */
+
 .Asia, .Africa, .America, .Europe, .SouthAmerica, .Oceania{
-    fill:#f3be5c;
-    stroke:black ;
-    stroke-width:5px ;
-    
+  fill:#f3be5c;
+  stroke:black ;
+  stroke-width:5px ;
 }
 
 .America{
-    stroke-width:2px !important;
+  stroke-width:2px !important;
 }
 
 #backToMap{
-    border: 3px white solid;
-    border-radius:20px;
-    margin-top: 5vw;
-    margin-bottom: 3vw;
-    padding-right:2vw;
-    padding-left:2vw;
-    transition:1s;
+  border: 3px white solid;
+  border-radius:20px;
+  margin-top: 5vw;
+  margin-bottom: 3vw;
+  padding-right:2vw;
+  padding-left:2vw;
+  transition:1s;
 }
+
 #backToMap:visited, #backToMap:active, #backToMap:link{
-    text-decoration: none;
+  text-decoration: none;
 }
+
 #backToMap:hover{
-    cursor:pointer;
-    color:rgb(88, 92, 78);
-    background-color:white;
-    transition:1s;
-    border-color:rgb(88, 92, 78);
+  cursor:pointer;
+  color:rgb(88, 92, 78);
+  background-color:white;
+  transition:1s;
+  border-color:rgb(88, 92, 78);
 }
 
 #CountryName{
-    color:white;
-    font-size:3vw;
-    font-family: 'Poppins', sans-serif;
-    margin-top:3vw;
-    margin-bottom: 2vw;
+  color:white;
+  font-size:3vw;
+  font-family: 'Poppins', sans-serif;
+  margin-top:3vw;
+  margin-bottom: 2vw;
 }
-/* .columns{
-    column-count: 2;
-    column-rule: white solid;
-    color:white;
-    column-gap: 3.5em;
-    margin-left: 5vw;
-    margin-right: 5vw;
-    column-span: all
-} */
+
 .sub{
-    color:white;
-    font-size: 1.5vw;
-    font-weight: bold;
-    font-family: 'Poppins', sans-serif;
-    display:"inline-block";
+  color:white;
+  font-size: 1.5vw;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  display:"inline-block";
 }
+
 .stats{
-    color:rgb(88, 92, 78);
-    font-size:2.5vw;
-    font-family: 'Poppins', sans-serif;
+  color:rgb(88, 92, 78);
+  font-size:2.5vw;
+  font-family: 'Poppins', sans-serif;
 }
 
 /*--------------------------------*/
 #PopulationDiv{
-    border-bottom:3px #ffffff solid;
-    border-bottom-right-radius: 2vw;
-    display:inline-block;
-    padding-left: 2vw;
-    padding-right: 4vw;
+  border-bottom:3px #ffffff solid;
+  border-bottom-right-radius: 2vw;
+  display:inline-block;
+  padding-left: 2vw;
+  padding-right: 4vw;
 }
 
 #population{
-    margin-top: -2.85vw;
-    margin-left: 12vw;
+  margin-top: -2.85vw;
+  margin-left: 12vw;
 }
+
 /*--------------------------------*/
+
 #FoodDiv{
-    border-bottom:3px #ffffff solid;
-    border-bottom-left-radius: 2vw;
-    margin-left: 60vw;
-    margin-top: -3.2vw;
+  border-bottom:3px #ffffff solid;
+  border-bottom-left-radius: 2vw;
+  margin-left: 60vw;
+  margin-top: -3.2vw;
 }
+
 #FoodSub{
-    padding-left: 1.5vw;
+  padding-left: 1.5vw;
 }
+
 #food{
-    margin-top: -2.9vw;
-    margin-left: 25vw;
+  margin-top: -2.9vw;
+  margin-left: 25vw;
 }
+
 /*--------------------------------*/
+
 #GDPDiv{
-    border-bottom:3px #ffffff solid;
-    border-bottom-right-radius: 2vw;
-    display:inline-block;
-    padding-left: 2vw;
-    padding-right: 3.5vw;
-    margin-top: 3vw;
+  border-bottom:3px #ffffff solid;
+  border-bottom-right-radius: 2vw;
+  display:inline-block;
+  padding-left: 2vw;
+  padding-right: 3.5vw;
+  margin-top: 3vw;
 }
+
 #GDPSub{
-    margin-left: 2vw;
+  margin-left: 2vw;
 }
+
 #GDP{
-    margin-top: -3vw;
-    margin-left: 13vw;
+  margin-top: -3vw;
+  margin-left: 13vw;
 }
+
 /*--------------------------------*/
+
 #PollutionDiv{
-    border-bottom:3px #ffffff solid;
-    border-bottom-Left-radius: 2vw;
-    margin-left: 60vw;
-    margin-top: -3.25vw;
+  border-bottom:3px #ffffff solid;
+  border-bottom-Left-radius: 2vw;
+  margin-left: 60vw;
+  margin-top: -3.25vw;
 }
+
 #PollSub{
-    margin-left: 9vw;
+  margin-left: 9vw;
 }
+
 #pollution{
-    margin-top: -2.9vw;
-    margin-left: 25vw;
+  margin-top: -2.9vw;
+  margin-left: 25vw;
 }
+
 #dataDiv{
-    padding-bottom: 3vw;
+  padding-bottom: 3vw;
 }
+
 /*--------------------------------*/
+
 /*!!!!!!!COUNTRY ANIMATIONS!!!!!!!*/
 
 /* \/-------------\/------------\/  Navigation Bar  \/-------------\/------------\/ */
 
 
-
 .menu {                                             /* main part of the menu when oppened  */
-    font-family: 'Poppins', sans-serif;  
-    font-size: 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 1px;
-    height: 70px;
-    width: 70px;
-    left: 0;
-    top: 0;
-    text-align: center;
-    position: fixed;
-    border-width: 4px;
-    border-style: solid;
-    border-color: #cecece;
-    border-bottom-right-radius: 40px;
-    overflow: hidden;
-    transition: all 0.2s ease;
-    z-index: 999;
-    background-color: #00000060;
-  }
+  font-family: 'Poppins', sans-serif;  
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  height: 70px;
+  width: 70px;
+  left: 0;
+  top: 0;
+  text-align: center;
+  position: fixed;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #cecece;
+  border-bottom-right-radius: 40px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  z-index: 999;
+  background-color: #00000060;
+}
   
+.menu.active { 
+  width: calc(100% - 140px);
+}
+.menu.active .menuContent * {
+  opacity: 1;
+}
+.menu.active span i:nth-child(1) {                                /* the button animation */
+  transform: rotate(-45deg) translate(50%, 50%);
+  top: 50%;
+}
+.menu.active span i:nth-child(2) {
+  transform: translateX(-100px);
+  opacity: 0;
+}
+.menu.active span i:nth-child(3) {
+  transform: rotate(45deg) translate(50%, 50%);
+  top: 50%;
+}
   
-  .menu.active { 
-    width: calc(100% - 140px);
-  }
-  .menu.active .menuContent * {
-    opacity: 1;
-  }
-  .menu.active span i:nth-child(1) {                                /* the button animation */
-    transform: rotate(-45deg) translate(50%, 50%);
-    top: 50%;
-  }
-  .menu.active span i:nth-child(2) {
-    transform: translateX(-100px);
-    opacity: 0;
-  }
-  .menu.active span i:nth-child(3) {
-    transform: rotate(45deg) translate(50%, 50%);
-    top: 50%;
-  }
+.menu span {                       /* the button */
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  left: 0;
+  cursor: pointer;
+  z-index: 1;
+}  
   
+.menu span i {                     /* button lines */
+  position: absolute;
+  transform-origin: 50% 50%;
+  width: 45%;
+  height: 2px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #ffffff;
+  transition: transform 0.3s ease, opacity 0.1s ease 0.1s;
+}  
   
-  .menu span {                       /* the button */
-    width: 70px;
-    height: 70px;
-    position: absolute;
-    left: 0;
-    cursor: pointer;
-    z-index: 1;
-  }
+.menu span i:nth-child(1) {
+  top: 35%;
+}
+.menu span i:nth-child(2) {        /* line positions */
+  top: 45%;
+}
+.menu span i:nth-child(3) {
+  top: 55%;
+}
+    
+.menu .menuContent {               /* content in the menu */
+  margin-top: 15px;
+  width: 100%;
+  height: 100%;
+  line-height: 40px;
+  right: 0px;
+  text-align: center;
+}
   
-  
-  .menu span i {                     /* button lines */
-    position: absolute;
-    transform-origin: 50% 50%;
-    width: 45%;
-    height: 2px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    background-color: #ffffff;
-    transition: transform 0.3s ease, opacity 0.1s ease 0.1s;
-  }
-  
-  
-  .menu span i:nth-child(1) {
-    top: 35%;
-  }
-  .menu span i:nth-child(2) {        /* line positions */
-    top: 45%;
-  }
-  .menu span i:nth-child(3) {
-    top: 55%;
-  }
-  
-  
-  .menu .menuContent {               /* content in the menu */
-    /* position: absolute; */
-    margin-top: 15px;
-    width: 100%;
-    height: 100%;
-    line-height: 40px;
-    right: 0px;
-    text-align: center;
-  }
-  
-  .menu .menuContent * {
-    opacity: 0;
-  }
-  
-  
-  .menu .menuContent ul li {         /* text in the menu */
-    display: inline-block;
-    margin-left: 50px;
-    margin-right: 50px;
-    transition: opacity 0.5s ease 0.3s;
-    position: relative;
-  }
-  a:link{                           /*a normal, unvisited link*/
-    text-decoration: none;
-    color: #ffffff;
-  }  
+.menu .menuContent * {
+  opacity: 0;
+}
    
-  a:visited{                        /*a link the user has visited*/
-    text-decoration: none;
-    color: #ffffff;
-  }
-   
-  a:hover{                         /*a link when the user mouses over it*/
-    color: #6bd1e0;
-    transition: 0.5s;
-  }  
-  
-  a:active{                        /*a link the moment it is clicked*/
-    text-decoration: none;
-    color: #ffffff;
-  } 
-  .here{                          /*this class indicates that you are on this page*/
-    color: #6bd1e0;
-    border-bottom: 1.5px #6bd1e0 solid;
-    border-radius: 10px;
-    padding-right: 1vw;
-    padding-left: 1vw;
-    cursor: default;
-  }
+.menu .menuContent ul li {         /* text in the menu */
+  display: inline-block;
+  margin-left: 50px;
+  margin-right: 50px;
+  transition: opacity 0.5s ease 0.3s;
+  position: relative;
+}
 
+a:link{                           /*a normal, unvisited link*/
+  text-decoration: none;
+  color: #ffffff;
+}
+a:visited{                        /*a link the user has visited*/
+  text-decoration: none;
+  color: #ffffff;
+}
+a:hover{                         /*a link when the user mouses over it*/
+  color: #6bd1e0;
+  transition: 0.5s;
+}
+a:active{                        /*a link the moment it is clicked*/
+  text-decoration: none;
+  color: #ffffff;
+}
 
+.here{                          /*this class indicates that you are on this page*/
+  color: #6bd1e0;
+  border-bottom: 1.5px #6bd1e0 solid;
+  border-radius: 10px;
+  padding-right: 1vw;
+  padding-left: 1vw;
+  cursor: default;
+}
+
+ 
   /* /\-------------/\------------/\ Navigation Bar /\-------------/\------------/\ */
 
 

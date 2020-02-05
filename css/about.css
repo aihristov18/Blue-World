@@ -1,10 +1,10 @@
 body {
-    font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-    overflow-x: hidden;
-    letter-spacing: 1px;
-    height: 100vh;
-    background-color: #23807e;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  overflow-x: hidden;
+  letter-spacing: 1px;
+  height: 100vh;
+  background-color: #23807e;
 }
 
 
@@ -116,40 +116,40 @@ body {
   opacity: 0;
 }
 
-
 .menu .menuContent ul li {         /* text in the menu */
   display: inline-block;
   margin-left: 50px;
   margin-right: 50px;
   transition: opacity 0.5s ease 0.3s;
 }
+
+
 a:link{                           /*a normal, unvisited link*/
-    text-decoration: none;
-    color: #ffffff;
-  }  
-   
-  a:visited{                        /*a link the user has visited*/
-    text-decoration: none;
-    color: #ffffff;
-  }
-   
-  a:hover{                         /*a link when the user mouses over it*/
-    color: #6bd1e0;
-    transition: 0.5s;
-  }  
-  
-  a:active{                        /*a link the moment it is clicked*/
-    text-decoration: none;
-    color: #ffffff;
-  } 
-  .here{                          /*this class indicates that you are on this page*/
-    color: #6bd1e0;
-    border-bottom: 1.5px #6bd1e0 solid;
-    border-radius: 10px;
-    padding-right: 1vw;
-    padding-left: 1vw;
-    cursor: default;
-  }
+  text-decoration: none;
+  color: #ffffff;
+}
+a:visited{                        /*a link the user has visited*/
+  text-decoration: none;
+  color: #ffffff;
+}
+a:hover{                         /*a link when the user mouses over it*/
+  color: #6bd1e0;
+  transition: 0.5s;
+}
+a:active{                        /*a link the moment it is clicked*/
+  text-decoration: none;
+  color: #ffffff;
+}
+
+
+.here{                          /*this class indicates that you are on this page*/
+  color: #6bd1e0;
+  border-bottom: 1.5px #6bd1e0 solid;
+  border-radius: 10px;
+  padding-right: 1vw;
+  padding-left: 1vw;
+  cursor: default;
+}
 
 /* /\-------------/\------------/\ Navigation Bar /\-------------/\------------/\ */
 
