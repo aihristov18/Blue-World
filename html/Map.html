@@ -5,7 +5,7 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>Blue World Map</title>
+   <title>Blue World Карта</title>
    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
    <link rel="stylesheet" type="text/css" href="../css/Map.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -28,7 +28,7 @@
                //Using the webscraping function, search the specified URLs (third argument)          
                //in the dataArray array for the specified DOM paths (first argument) and place the text it scrapes in the div with id (second argument)
                //with an additional message at the end (fourth argument). It is not mandatory and can be filled with "" to display no additional message.       
-               getInfo(populationDataPoint, "#population", dataArray[i].populationUrl, "People");
+               getInfo(populationDataPoint, "#population", dataArray[i].populationUrl, "хора");
                getInfo(GDPSataPoint, "#GDP", dataArray[i].GDPUrl, "")
                getInfo(foodDataPoint, "#food", dataArray[i].FPUrl, "/ 100")
                getInfo(pollutionDataPoint, "#pollution", dataArray[i].FPUrl, "/ 100")
@@ -632,10 +632,10 @@
 
       <div class='menuContent'>
          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li class="here">Map</li>
-            <li><a href="otherapps.html">Other Apps</a></li>
+                            <li><a href="index.html">Начало</a></li>
+                            <li><a href="about.html">За нас</a></li>
+                            <li><a href="map.html">Карта</a></li>
+                            <li class="here">Други Приложения</li>
          </ul>
       </div>
 
@@ -656,26 +656,26 @@
       </center>
       <!--The container for the population data-->
       <div id="PopulationDiv">
-         <p id="PopSub" class="sub">Population:</p>
+         <p id="PopSub" class="sub">Население:</p>
          <p id="population" class="stats">...</p>
       </div>
       <!--The container for the food production score data-->
       <div id="FoodDiv">
-         <p id="FoodSub" class="sub">Seafood Production Score:</p>
+         <p id="FoodSub" class="sub">Скала за продукция на морска храна:</p>
          <p id="food" class="stats">...</p>
       </div>
       <!--The container for the GDP data-->
       <div id="GDPDiv">
-         <p id="GDPSub" class="sub">GDP:</p>
+         <p id="GDPSub" class="sub">брутен вътрешен продукт:</p>
          <p id="GDP" class="stats">...</p>
       </div>
       <!--The container for the pollution data-->
       <div id="PollutionDiv">
-         <p id="PollSub" class="sub">Pollution:</p>
+         <p id="PollSub" class="sub">Скала за замърсяване:</p>
          <p id="pollution" class="stats">...</p>
       </div>
       <center>
-         <a href="#Map" id="backToMap" class="sub">Back To Map</a>
+         <a href="#Map" id="backToMap" class="sub">Обратно Към Картата</a>
       </center>
    </div>
 </body>
